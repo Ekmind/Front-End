@@ -23,8 +23,12 @@
           height="55"
         />
       </a>
+      <!-- Botones NavBar log out -->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul
+          class="navbar-nav me-auto mb-2 mb-lg-0"
+          *ngIf="checkLogIn() === false"
+        >
           <li class="nav-item">
             <a class="nav-link fs-6 text-light" href="#">HOME</a>
           </li>
@@ -35,6 +39,7 @@
             <a class="nav-link fs-6 text-light" href="#contact">CONTACT</a>
           </li>
         </ul>
+
         <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === false">
           <button
             routerLink="log-in"
@@ -52,6 +57,23 @@
             Sign Up
           </button>
         </div>
+
+        <!-- Botones NavBar log in -->
+        <ul
+          class="navbar-nav me-auto mb-2 mb-lg-0"
+          *ngIf="checkLogIn() === true"
+        >
+          <li class="nav-item">
+            <a class="nav-link fs-6 text-light" href="#" (click)="logOut()">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-6 text-light" href="#services">FACE TRAKING</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-6 text-light" routerLink="profile">PROFILE</a>
+          </li>
+        </ul>
+
         <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === true">
           <button
             routerLink=""
@@ -63,7 +85,7 @@
             Log Out
           </button>
         </div>
-        <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === true">
+        <!-- <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === true">
           <button
             routerLink="profile"
             class="btn btn-outline-light btn-sm"
@@ -86,7 +108,7 @@
             </svg>
             Profile
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>

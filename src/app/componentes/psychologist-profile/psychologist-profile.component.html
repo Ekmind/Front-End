@@ -1,65 +1,61 @@
 <body class="">
-    <section>
-      <div class="container py-4">
-        <div class="row vh-100 justify-content-around align-items-center">
-          <div class="col-lg-5">
-            <div class=" mb-4">
-              <div class="card-body text-center">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                  class="rounded-circle img-fluid" style="width: 200px" />
-                <h5 class="my-3 fs-1">{{user.name}}</h5>
-                <p class="text-muted mb-1 fs-3">Psychologist</p>
-              </div>
+  <section>
+    <div class="container py-4">
+      <div class="row vh-100 justify-content-around align-items-center">
+        <div class="col-lg-5">
+          <div class="mb-4">
+            <div class="card-body text-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                alt="avatar"
+                class="rounded-circle img-fluid"
+                style="width: 200px"
+              />
+              <h5 class="my-3 fs-1">{{ user.name }}</h5>
+              <p class="text-muted mb-1 fs-3">Psychologist</p>
             </div>
-          </div>  
-          <div class="col-lg-7">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="my-2 fs-4">First Name</p>
-                  </div>
-                  <div class="col-sm-9 text-center">
-                    <span class="text-muted my-2 fs-4">{{ user.name }}</span>
-                  </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="my-2 fs-4">First Name</p>
                 </div>
-                <hr />
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="my-2 fs-4">Last Name</p>
-                  </div>
-                  <div class="col-sm-9 text-center" >
-                    <p class="text-muted my-2 fs-4">{{ user.last_name }}</p>
-                  </div>
-                </div>
-                <hr />
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="my-2 fs-4">Email</p>
-                  </div>
-                  <div class="col-sm-9 text-center">
-                    <p class="text-muted my-2 fs-4">{{ user.email }}</p>
-                  </div>
-                </div>
-                <hr />
-                <div class="row">
-                  <div class="col-sm-3">
-                    <p class="my-2 fs-4">Address</p>
-                  </div>
-                  <div class="col-sm-9 text-center">
-                    <p class="text-muted my-2 fs-4">Bay Area, San Francisco, CA</p>
-                  </div>
+                <div class="col-sm-9 text-center">
+                  <span class="text-muted my-2 fs-4">{{ user.name }}</span>
                 </div>
               </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="my-2 fs-4">Last Name</p>
+                </div>
+                <div class="col-sm-9 text-center">
+                  <p class="text-muted my-2 fs-4">{{ user.last_name }}</p>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="my-2 fs-4">Email</p>
+                </div>
+                <div class="col-sm-9 text-center">
+                  <p class="text-muted my-2 fs-4">{{ user.email }}</p>
+                </div>
+              </div>
+              <hr />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </body>
-  <footer class="flex-md-row text-md-start py-4 px-4 px-xl-5">
-    <!-- Copyright -->
-    <div class="text-white text-center mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
     </div>
-  </footer>
+  </section>
+</body>
+<footer class="flex-md-row text-md-start py-4 px-4 px-xl-5">
+  <!-- Copyright -->
+  <div class="text-white text-center mb-3 mb-md-0">
+    Copyright © 2020. All rights reserved.
+  </div>
+</footer>

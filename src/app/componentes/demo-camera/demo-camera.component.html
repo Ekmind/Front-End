@@ -2,13 +2,8 @@
   <section>
     <div class="container">
       <div class="row vh-100 align-items-center d-flex">
-        <div class="col flex-column justify-content-center">
-          <div class="col">
-            <div class="video-container mt-5 rounded-circle" *ngIf="!error">
-              <video #video id="video" playsinline autoplay></video>
-            </div>
-          </div>
-          <div class="input-group mt-3 justify-content-center">
+        <div class="col flex-column justify-content-center" id="lol">
+          <div class="input-group mt-5 justify-content-center">
             <div class="input-group-prepend">
               <button
                 id="button"
@@ -21,6 +16,11 @@
             <select class="custom-select" id="select">
               <option selected>Choose...</option>
             </select>
+          </div>
+          <div class="col">
+            <div class="video-container mt-3 rounded-circle" *ngIf="!error">
+              <video #video id="video" playsinline autoplay></video>
+            </div>
           </div>
         </div>
         <div class="col d-flex flex-column justify-content-center text-center">

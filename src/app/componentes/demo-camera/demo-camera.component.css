@@ -1,12 +1,18 @@
-.container{
+.container {
     overflow-x: hidden;
 }
+
+video {
+    border-radius: 20px;
+}
+
 .wrapper {
     position: relatives;
     width: 150%;
     height: 150%;
     pointer-events: none;
 }
+
 .charts {
     width: 100%;
     height: 100%;

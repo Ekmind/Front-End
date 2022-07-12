@@ -1,9 +1,23 @@
+body{
+    background-color: rgb(241, 241, 241);
+}
+
 .container {
     overflow-x: hidden;
 }
 
 video {
     border-radius: 20px;
+}
+
+.results{
+    border-radius: 10px;
+    background-color: white;
+}
+
+canvas{
+    border-radius: 10px;
+    background-color: white;
 }
 
 .wrapper {

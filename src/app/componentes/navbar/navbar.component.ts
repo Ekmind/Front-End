@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/authe/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,10 @@ import { AuthService } from 'src/services/authe/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
-  ngOnInit(){
-   }
+  ngOnInit() {
+  }
 
   checkLogIn() {
     if (localStorage.getItem('jwt') != null) {
@@ -21,9 +22,8 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-
-
   logOut() {
     localStorage.removeItem('jwt');
+    this.toastr.success("Logged out")
   }
 }

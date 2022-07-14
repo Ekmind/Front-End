@@ -15,8 +15,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
   logUser(email: string, password: string) {
     this.http.post(this.mainURL + 'api/login', { email: email, password: password }).subscribe((resp: any) => {
-      this.user = resp.user;
-      this.toastr.success("Logged in")
+      this.user = resp.user; 
       this.router.navigate(['expedient']);
       localStorage.setItem('jwt', resp.token);
     })
@@ -27,6 +26,7 @@ export class AuthService {
   }
  
   public get logIn(): boolean {
+    this.toastr.success("Logged in")
     return (localStorage.getItem('jwt') !== null);
   }
 

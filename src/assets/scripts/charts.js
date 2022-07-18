@@ -172,8 +172,7 @@ const EMOTIONS = [
     startButton.style.display = "none";
     initSDK.then(({start}) => start());
   };
-  
-  
+    
   
   
   

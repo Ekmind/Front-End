@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ExpedientComponent } from './componentes/expedient/expedient.component';
 import { DemoCameraComponent } from './componentes/demo-camera/demo-camera.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,17 @@ import { DemoCameraComponent } from './componentes/demo-camera/demo-camera.compo
     ExpedientComponent,
     DemoCameraComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule,BrowserModule, BrowserAnimationsModule, ToastrModule.forRoot()],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+  ],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

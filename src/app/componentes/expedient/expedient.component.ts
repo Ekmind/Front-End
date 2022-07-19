@@ -1,23 +1,30 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor.interface';
 import { AuthService } from 'src/services/authe/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-expedient',
   templateUrl: './expedient.component.html',
-  styleUrls: ['./expedient.component.css']
+  styleUrls: ['./expedient.component.css'],
 })
 export class ExpedientComponent implements OnInit {
+  private readonly mainURL = `${environment.apiURL}`;
+  private readonly localURL = `${environment.localURL}`;
+  user: Doctor | any;
 
-  user:Doctor|any;
-
-  constructor(private auth:AuthService) { }
+  constructor(private auth: AuthService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.user = this.auth.user
+    this.http
+      .get(this.localURL + 'api/login', { withCredentials: true })
+      .subscribe((res: any) => {
+        console.log(res);
+        this.user = res.user;
+      });
   }
 }
-
 
 /* <script>
   $(document).ready(function () {

@@ -3,7 +3,11 @@
     <div class="container">
       <div class="row vh-100 align-items-center">
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <img src="/assets/img/icon.png" class="img-fluid" alt="Responsive image" />
+          <img
+            src="/assets/img/icon.png"
+            class="img-fluid"
+            alt="Responsive image"
+          />
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form (ngSubmit)="login()">
@@ -14,19 +18,33 @@
             <!-- Email input -->
             <div class="form-outline mb-4">
               <label class="form-label fs-5">Email address</label>
-              <input type="text" [(ngModel)]="email" name="email" class="form-control form-control-lg"
-                placeholder="Enter a email address" />
+              <input
+                type="text"
+                [(ngModel)]="email"
+                name="email"
+                class="form-control form-control-lg"
+                placeholder="Enter a email address"
+              />
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-3">
               <label class="form-label fs-5">Password</label>
-              <input type="password" [(ngModel)]="password" name="password" class="form-control form-control-lg"
-                placeholder="Enter password" />
+              <input
+                type="password"
+                [(ngModel)]="password"
+                name="password"
+                class="form-control form-control-lg"
+                placeholder="Enter password"
+              />
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button id="loginbutton" type="submit" (click)="login()" class="btn btn-primary btn-lg">
+              <button
+                id="loginbutton"
+                type="submit"
+                class="btn btn-primary btn-lg"
+              >
                 Login
               </button>
             </div>

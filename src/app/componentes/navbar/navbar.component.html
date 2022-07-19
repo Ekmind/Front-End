@@ -4,15 +4,31 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <img src="/assets/img/icon.png" class="img-fluid" alt="" width="55" height="55" />
+        <img
+          src="/assets/img/icon.png"
+          class="img-fluid"
+          alt=""
+          width="55"
+          height="55"
+        />
       </a>
       <!-- Botones NavBar log out -->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="checkLogIn() === false">
+        <ul
+          class="navbar-nav me-auto mb-2 mb-lg-0"
+          *ngIf="isLoggedIn() === false"
+        >
           <li class="nav-item">
             <a class="nav-link fs-6 text-light" href="#">HOME</a>
           </li>
@@ -24,29 +40,55 @@
           </li>
         </ul>
 
-        <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === false">
-          <button routerLink="sign-up" class="btn btn-outline-light btn-sm" type="button" style="margin-right: 25px">
+        <div class="d-grid gap-2 d-md-block" *ngIf="isLoggedIn() === false">
+          <button
+            routerLink="sign-up"
+            class="btn btn-outline-light btn-sm"
+            type="button"
+            style="margin-right: 25px"
+          >
             Sign Up <span class="bi bi-person-plus"></span>
           </button>
-          <button routerLink="log-in" class="btn btn-outline-light btn-sm" type="button">
+          <button
+            routerLink="log-in"
+            class="btn btn-outline-light btn-sm"
+            type="button"
+          >
             Log In <span class="bi bi-box-arrow-in-right"></span>
           </button>
         </div>
 
         <!-- Botones NavBar log in -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="checkLogIn() === true">
+        <ul
+          class="navbar-nav me-auto mb-2 mb-lg-0"
+          *ngIf="isLoggedIn() === true"
+        >
           <li class="nav-item">
-            <a class="nav-link fs-6 text-light" routerLink="profile" style="margin-right: 25px"> <i
-                class="bi bi-person-circle"></i> PROFILE</a>
+            <a
+              class="nav-link fs-6 text-light"
+              routerLink="profile"
+              style="margin-right: 25px"
+            >
+              <i class="bi bi-person-circle"></i> PROFILE</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-6 text-light" routerLink="expedient"><i class="bi bi-archive"></i> EXPEDIENT</a>
+            <a class="nav-link fs-6 text-light" routerLink="expedient"
+              ><i class="bi bi-archive"></i> EXPEDIENT</a
+            >
           </li>
         </ul>
 
-        <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === true">
-          <button routerLink="" (click)="logOut()" class="btn btn-outline-light btn-sm" type="button"
-            style="margin-right: 25px">Log Out <span class="bi bi-box-arrow-in-left"></span></button>
+        <div class="d-grid gap-2 d-md-block" *ngIf="isLoggedIn() === true">
+          <button
+            routerLink=""
+            (click)="logOut()"
+            class="btn btn-outline-light btn-sm"
+            type="button"
+            style="margin-right: 25px"
+          >
+            Log Out <span class="bi bi-box-arrow-in-left"></span>
+          </button>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ export class PsychologistProfileComponent implements OnInit {
     this.http
       .get(this.localURL + 'api/login', { withCredentials: true })
       .subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
         this.user = res.user;
       });
   }

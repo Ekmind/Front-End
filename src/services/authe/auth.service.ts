@@ -33,7 +33,7 @@ export class AuthService {
         }
       )
       .subscribe((res: any) => {
-        console.log(res);
+        console.log(res.message);
         this.user = res.user;
         this.toastr.success(res.message);
         this.router.navigate(['expedient']);

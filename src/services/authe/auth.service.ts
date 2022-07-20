@@ -37,7 +37,7 @@ export class AuthService {
         this.user = res.user;
         this.toastr.success(res.message);
         this.router.navigate(['expedient']);
-        this.cookie.set('login', res.user);
+        this.cookie.set('login', res.user, { expires: 3 / 24 });
       });
   }
 

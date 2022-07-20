@@ -44,7 +44,7 @@ export class ExpedientComponent implements OnInit {
       })
       .subscribe((res: any) => {
         console.log(res);
-        this.patient = res;
+        this.patient = res.patients;
       });
   }
 }

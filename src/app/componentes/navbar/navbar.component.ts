@@ -31,8 +31,10 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     this.cookie.delete('login');
-    this.http.get(this.localURL + 'api/logout').subscribe((resp: any) => {
-      this.toastr.success(resp);
-    });
+    this.http
+      .get(this.localURL + 'api/logout', { withCredentials: true })
+      .subscribe((resp: any) => {
+        this.toastr.success(resp);
+      });
   }
 }

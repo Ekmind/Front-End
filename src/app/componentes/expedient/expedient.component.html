@@ -52,117 +52,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>20</td>
-                    <td>Macho</td>
-                    <td>macho@gmail.com</td>
-                    <td>
-                      <a class="add" title="Add" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE03B;</i></a
-                      >
-                      <a
-                        href="patient-profile"
-                        class="view"
-                        title="View"
-                        data-toggle="tooltip"
-                        ><i class="material-icons">&#xE417;</i></a
-                      >
-                      <a class="edit" title="Edit" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE254;</i></a
-                      >
-                      <a class="delete" title="Delete" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE872;</i></a
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>20</td>
-                    <td>Macho</td>
-                    <td>macho@gmail.com</td>
-                    <td>
-                      <a class="add" title="Add" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE03B;</i></a
-                      >
-                      <a
-                        href="patient-profile"
-                        class="view"
-                        title="View"
-                        data-toggle="tooltip"
-                        ><i class="material-icons">&#xE417;</i></a
-                      >
-                      <a class="edit" title="Edit" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE254;</i></a
-                      >
-                      <a class="delete" title="Delete" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE872;</i></a
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>20</td>
-                    <td>Macho</td>
-                    <td>macho@gmail.com</td>
-                    <td>
-                      <a class="add" title="Add" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE03B;</i></a
-                      >
-                      <a
-                        href="patient-profile"
-                        class="view"
-                        title="View"
-                        data-toggle="tooltip"
-                        ><i class="material-icons">&#xE417;</i></a
-                      >
-                      <a class="edit" title="Edit" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE254;</i></a
-                      >
-                      <a class="delete" title="Delete" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE872;</i></a
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>20</td>
-                    <td>Macho</td>
-                    <td>macho@gmail.com</td>
-                    <td>
-                      <a class="add" title="Add" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE03B;</i></a
-                      >
-                      <a
-                        href="patient-profile"
-                        class="view"
-                        title="View"
-                        data-toggle="tooltip"
-                        ><i class="material-icons">&#xE417;</i></a
-                      >
-                      <a class="edit" title="Edit" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE254;</i></a
-                      >
-                      <a class="delete" title="Delete" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE872;</i></a
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>20</td>
-                    <td>Macho</td>
-                    <td>macho@gmail.com</td>
+                  <tr *ngFor="let patient of patient; index as i">
+                    <td>{{ i }}</td>
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.last_name }}</td>
+                    <td>{{ patient.age }}</td>
+                    <td>{{ patient.gender }}</td>
+                    <td>{{ patient.email }}</td>
                     <td>
                       <a class="add" title="Add" data-toggle="tooltip"
                         ><i class="material-icons">&#xE03B;</i></a
@@ -184,7 +80,6 @@
                   </tr>
                 </tbody>
               </table>
-              <button>List</button>
             </div>
           </div>
         </div>

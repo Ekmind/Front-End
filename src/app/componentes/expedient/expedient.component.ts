@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor.interface';
-import { Patient } from 'src/app/interfaces/patient.interface';
+import { Patient } from 'src/app/models/patient';
+import { Patients } from 'src/app/interfaces/patients.interface';
 import { AuthService } from 'src/services/authe/auth.service';
 import { environment } from 'src/environments/environment';
 import { ManagementService } from 'src/services/patients/management.service';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-expedient',
@@ -15,12 +17,20 @@ export class ExpedientComponent implements OnInit {
   private readonly mainURL = `${environment.apiURL}`;
   private readonly localURL = `${environment.localURL}`;
   user: Doctor | any;
-  patient: Patient | any;
+  patients: Patients | any;
+  patientData = this.formBuilder.group({
+    name: '',
+    last_name: '',
+    age: Number,
+    gender: '',
+    email: '',
+  });
 
   constructor(
     private auth: AuthService,
     private http: HttpClient,
-    private patients: ManagementService
+    private pat: ManagementService,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +54,23 @@ export class ExpedientComponent implements OnInit {
       })
       .subscribe((res: any) => {
         console.log(res);
-        this.patient = res.patients;
+        this.patients = res.patients;
       });
+  }
+
+  getPatientId(index: number) {
+    this.pat.patient = this.patients[index];
+    const patient = this.pat.patient;
+    console.log(patient);
+  }
+
+  showPatient() {
+    const patient = this.pat.patient;
+    console.log(patient);
+  }
+
+  submitPatient(user_id: any, patient: any) {
+    console.log({ user: user_id, patient: patient });
+    //this.http.post(this.localURL+`api/insert/patient/${user_id}`, patient, {withCredentials:true})
   }
 }

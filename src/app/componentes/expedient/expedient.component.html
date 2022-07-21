@@ -37,6 +37,8 @@
                       <i class="fa fa-plus"></i> Add New
                     </button>
                   </div>
+                  <!-- Form -->
+                  <!-- Form  -->
                 </div>
               </div>
               <table class="table table-bordered">
@@ -52,8 +54,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let patient of patient; index as i">
-                    <td>{{ i }}</td>
+                  <tr *ngFor="let patient of patients; index as i">
+                    <td>{{ i + 1 }}</td>
                     <td>{{ patient.name }}</td>
                     <td>{{ patient.last_name }}</td>
                     <td>{{ patient.age }}</td>
@@ -65,12 +67,17 @@
                       >
                       <a
                         href="patient-profile"
+                        (click)="getPatientId(i)"
                         class="view"
                         title="View"
                         data-toggle="tooltip"
                         ><i class="material-icons">&#xE417;</i></a
                       >
-                      <a class="edit" title="Edit" data-toggle="tooltip"
+                      <a
+                        class="edit"
+                        title="Edit"
+                        data-toggle="tooltip"
+                        (click)="showPatient()"
                         ><i class="material-icons">&#xE254;</i></a
                       >
                       <a class="delete" title="Delete" data-toggle="tooltip"

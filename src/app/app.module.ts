@@ -42,7 +42,7 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [CookieService],
+  providers: [CookieService, ExpedientComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

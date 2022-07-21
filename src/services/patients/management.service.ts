@@ -9,9 +9,21 @@ export class ManagementService {
   private readonly mainURL = `${environment.apiURL}`;
   private readonly localURL = `${environment.localURL}`;
 
-  constructor(private http: HttpClient) {}
+  public patients = <any>[];
 
-  public getAll(user_id: any) {
-    this.http.get(this.localURL + `api/get/all/patients/${user_id}`);
-  }
+  public patient = {
+    _id: String,
+    name: String,
+    last_name: String,
+    age: Number,
+    gender: String,
+    phone: Number,
+    image: String,
+    email: String,
+    isActive: Boolean,
+    createdAt: Date,
+    updatedAt: Date,
+  };
+
+  constructor(private http: HttpClient) {}
 }

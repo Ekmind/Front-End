@@ -58,19 +58,16 @@ export class ExpedientComponent implements OnInit {
       });
   }
 
-  getPatientId(index: number) {
-    this.pat.patient = this.patients[index];
-    const patient = this.pat.patient;
-    console.log(patient);
-  }
-
-  showPatient() {
-    const patient = this.pat.patient;
-    console.log(patient);
-  }
+  newPatient() {}
 
   submitPatient(user_id: any, patient: any) {
     console.log({ user: user_id, patient: patient });
-    //this.http.post(this.localURL+`api/insert/patient/${user_id}`, patient, {withCredentials:true})
+    this.http
+      .post(this.localURL + `api/insert/patient/${user_id}`, patient, {
+        withCredentials: true,
+      })
+      .subscribe((res: any) => {
+        console.log(res);
+      });
   }
 }

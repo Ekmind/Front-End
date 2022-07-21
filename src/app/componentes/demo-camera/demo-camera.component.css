@@ -8,6 +8,7 @@ body{
 
 video {
     border-radius: 20px;
+    width: 550px;
 }
 
 .results{
@@ -33,4 +34,3 @@ canvas{
     max-height: 70%;
     max-width: 70%;
 }
-

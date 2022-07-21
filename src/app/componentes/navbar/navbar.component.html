@@ -23,8 +23,12 @@
           height="55"
         />
       </a>
+      <!-- Botones NavBar log out -->
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul
+          class="navbar-nav me-auto mb-2 mb-lg-0"
+          *ngIf="isLoggedIn() === false"
+        >
           <li class="nav-item">
             <a class="nav-link fs-6 text-light" href="#">HOME</a>
           </li>
@@ -35,24 +39,47 @@
             <a class="nav-link fs-6 text-light" href="#contact">CONTACT</a>
           </li>
         </ul>
-        <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === false">
-          <button
-            routerLink="log-in"
-            class="btn btn-outline-light btn-sm"
-            type="button"
-            style="margin-right: 25px"
-          >
-            Log In
-          </button>
+
+        <div class="d-grid gap-2 d-md-block" *ngIf="isLoggedIn() === false">
           <button
             routerLink="sign-up"
             class="btn btn-outline-light btn-sm"
             type="button"
+            style="margin-right: 25px"
           >
-            Sign Up
+            Sign Up <span class="bi bi-person-plus"></span>
+          </button>
+          <button
+            routerLink="log-in"
+            class="btn btn-outline-light btn-sm"
+            type="button"
+          >
+            Log In <span class="bi bi-box-arrow-in-right"></span>
           </button>
         </div>
-        <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === true">
+
+        <!-- Botones NavBar log in -->
+        <ul
+          class="navbar-nav me-auto mb-2 mb-lg-0"
+          *ngIf="isLoggedIn() === true"
+        >
+          <li class="nav-item">
+            <a
+              class="nav-link fs-6 text-light"
+              routerLink="profile"
+              style="margin-right: 25px"
+            >
+              <i class="bi bi-person-circle"></i> PROFILE</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-6 text-light" routerLink="expedient"
+              ><i class="bi bi-archive"></i> EXPEDIENT</a
+            >
+          </li>
+        </ul>
+
+        <div class="d-grid gap-2 d-md-block" *ngIf="isLoggedIn() === true">
           <button
             routerLink=""
             (click)="logOut()"
@@ -60,31 +87,7 @@
             type="button"
             style="margin-right: 25px"
           >
-            Log Out
-          </button>
-        </div>
-        <div class="d-grid gap-2 d-md-block" *ngIf="checkLogIn() === true">
-          <button
-            routerLink="profile"
-            class="btn btn-outline-light btn-sm"
-            type="button"
-            style="margin-right: 25px"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-person-circle"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-              <path
-                fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-              />
-            </svg>
-            Profile
+            Log Out <span class="bi bi-box-arrow-in-left"></span>
           </button>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { CameraComponent } from './componentes/camera/camera.component';
 import { PatientProfileComponent } from './componentes/patient-profile/patient-profile.component';
 import { PsychologistProfileComponent } from './componentes/psychologist-profile/psychologist-profile.component';
 import { ExpedientComponent } from './componentes/expedient/expedient.component';
+import { DemoCameraComponent } from './componentes/demo-camera/demo-camera.component';
 import { ErrorpageComponent } from './componentes/errorpage/errorpage.component';
 import { AuthguardGuard } from 'src/guards/authguard.guard';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'sign-up', component: SignUpComponent },
       { path: 'comments', component: CommentsComponent },
       { path: 'camera', component: CameraComponent },
+      { path: 'demo-camera', component: DemoCameraComponent },
       {
         path: 'patient-profile',
         canActivate: [AuthguardGuard],

@@ -1,33 +1,56 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { response } from 'express';
 import { Doctor } from 'src/app/interfaces/doctor.interface';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  user: Doctor|any;
+  user: Doctor | any;
   private readonly mainURL = `${environment.apiURL}`;
+  private readonly localURL = `${environment.localURL}`;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toastr: ToastrService,
+    private cookie: CookieService
+  ) {}
   logUser(email: string, password: string) {
-    this.http.post(this.mainURL + 'api/login', { email: email, password: password }).subscribe((resp: any) => {
-      console.log(resp.user);
-      this.user = resp.user;
-      this.router.navigate(['profile']);
-      localStorage.setItem('jwt', resp.token);
-    })
+    this.http
+      .post(
+        this.localURL + 'api/login',
+        { email: email, password: password },
+        {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          }),
+          withCredentials: true,
+        }
+      )
+      .subscribe((res: any) => {
+        console.log(res.message);
+        this.user = res.user;
+        this.toastr.success(res.message);
+        this.router.navigate(['expedient']);
+        this.cookie.set('login', res.user, { expires: 3 / 24 });
+      });
   }
 
   logOut() {
-    localStorage.removeItem('jwt');
-  }
- 
-  public get logIn(): boolean {
-    return (localStorage.getItem('jwt') !== null);
+    this.cookie.delete('login');
+    this.http.get(this.localURL + 'api/logout').subscribe((resp: any) => {
+      this.toastr.success(resp);
+    });
   }
 
+  public get logIn(): boolean {
+    if (this.cookie.get('login')) return true;
+
+    return false;
+  }
 }

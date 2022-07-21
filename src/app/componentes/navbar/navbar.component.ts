@@ -1,28 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/services/authe/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  private readonly mainURL = `${environment.apiURL}`;
+  private readonly localURL = `${environment.localURL}`;
+  constructor(
+    private cookie: CookieService,
+    private http: HttpClient,
+    private toastr: ToastrService
+  ) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit(){
-    console.log("Hola")
-   }
-
-  checkLogIn() {
-    if (localStorage.getItem('auth_token') != null) {
-      return true;
-    } else {
+  isLoggedIn() {
+    if (!this.cookie.get('login')) {
       return false;
+    } else {
+      return true;
     }
   }
 
   logOut() {
-    localStorage.removeItem('auth_token');
+    this.cookie.delete('login');
+    this.http
+      .get(this.localURL + 'api/logout', { withCredentials: true })
+      .subscribe((resp: any) => {
+        this.toastr.success(resp);
+      });
   }
 }

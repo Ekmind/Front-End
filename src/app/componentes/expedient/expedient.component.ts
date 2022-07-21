@@ -68,6 +68,7 @@ export class ExpedientComponent implements OnInit {
       })
       .subscribe((res: any) => {
         console.log(res);
+        this.ngOnInit();
       });
   }
 }

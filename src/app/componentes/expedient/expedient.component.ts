@@ -16,6 +16,7 @@ export class ExpedientComponent implements OnInit {
   private readonly localURL = `${environment.localURL}`;
   user: Doctor | any;
   patient: Patient | any;
+  patientData: any
 
   constructor(
     private auth: AuthService,
@@ -46,5 +47,14 @@ export class ExpedientComponent implements OnInit {
         console.log(res);
         this.patient = res.patients;
       });
+  }
+
+  newPatient(){
+    
+  }
+
+  submitPatient(user_id: any, patient:any) {
+    console.log({user: user_id, patient: patient})
+    //this.http.post(this.localURL+`api/insert/patient/${user_id}`, patient, {withCredentials:true})
   }
 }

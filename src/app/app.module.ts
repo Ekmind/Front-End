@@ -17,6 +17,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { ExpedientComponent } from './componentes/expedient/expedient.component';
 import { DemoCameraComponent } from './componentes/demo-camera/demo-camera.component';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopUpAlertComponent } from './componentes/pop-up-alert/pop-up-alert.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CookieService } from 'ngx-cookie-service';
     PsychologistProfileComponent,
     ExpedientComponent,
     DemoCameraComponent,
+    PopUpAlertComponent,
   ],
+  entryComponents: [PopUpAlertComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,6 +45,7 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MatDialogModule,
   ],
   providers: [CookieService, ExpedientComponent],
   bootstrap: [AppComponent],

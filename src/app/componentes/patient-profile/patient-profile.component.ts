@@ -9,19 +9,22 @@ import { ExpedientComponent } from '../expedient/expedient.component';
   styleUrls: ['./patient-profile.component.css'],
 })
 export class PatientProfileComponent implements OnInit {
-  patient: Patient | any;
-
   constructor(
     private expedientData: ExpedientComponent,
-    private pat: ManagementService
+    private patientManagement: ManagementService
   ) {}
+
+  patient: any;
 
   ngOnInit(): void {
     this.getPatient();
   }
 
   async getPatient() {
-    const patient = this.patient;
-    await console.log(patient);
+    if (this.patientManagement.patient !== null || undefined) {
+      this.patient = this.patientManagement.patient;
+      await console.log(this.patient);
+      return;
+    }
   }
 }

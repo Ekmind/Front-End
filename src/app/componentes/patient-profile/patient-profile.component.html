@@ -3,17 +3,25 @@
     <div class="container">
       <div class="row vh-100 justify-content-around align-items-center">
         <div class="col-lg-5">
-          <div class=" mb-4">
+          <div class="mb-4">
             <div class="card-body text-center">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                class="rounded-circle img-fluid" style="width: 150px" />
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                alt="avatar"
+                class="rounded-circle img-fluid"
+                style="width: 150px"
+              />
               <h5 class="my-3 fs-2">John Doe</h5>
               <p class="text-muted fs-3">Patient</p>
-              <button routerLink="/camera" class="btn btn-outline-danger" type="button">
+              <button
+                routerLink="/camera"
+                class="btn btn-outline-danger"
+                type="button"
+              >
                 New Session
               </button>
             </div>
-          </div> 
+          </div>
         </div>
         <div class="col-lg-7">
           <div class="card mb-4">
@@ -23,7 +31,7 @@
                   <p class="my-2 fs-4">Full Name</p>
                 </div>
                 <div class="col-sm-9 text-center">
-                  <p class="text-muted my-2 fs-4">Johnatan Smith</p>
+                  <p class="text-muted my-2 fs-4">{{ patient.name }}</p>
                 </div>
               </div>
               <hr />
@@ -32,7 +40,7 @@
                   <p class="my-2 fs-4">Email</p>
                 </div>
                 <div class="col-sm-9 text-center">
-                  <p class="text-muted my-2 fs-4">example@gmail.com</p>
+                  <p class="text-muted my-2 fs-4">{{ patient.email }}</p>
                 </div>
               </div>
               <hr />
@@ -41,7 +49,7 @@
                   <p class="my-2 fs-4">Mobile</p>
                 </div>
                 <div class="col-sm-9 text-center">
-                  <p class="text-muted my-2 fs-4">(614) 765-4321</p>
+                  <p class="text-muted my-2 fs-4">{{ patient.phone }}</p>
                 </div>
               </div>
               <hr />
@@ -50,10 +58,13 @@
                   <p class="my-2 fs-4">Address</p>
                 </div>
                 <div class="col-sm-9 text-center">
-                  <p class="text-muted my-2 fs-4">Bay Area, San Francisco, CA</p>
+                  <p class="text-muted my-2 fs-4">
+                    Bay Area, San Francisco, CA
+                  </p>
                 </div>
               </div>
             </div>
+            <button (click)="getPatient()">Get Patient</button>
           </div>
         </div>
       </div>

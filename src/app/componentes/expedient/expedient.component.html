@@ -133,7 +133,11 @@
                             >
                               Close
                             </button>
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                            <button
+                              type="submit"
+                              class="btn btn-primary"
+                              data-bs-dismiss="modal"
+                            >
                               Save
                             </button>
                           </div>
@@ -168,7 +172,7 @@
                         ><i class="material-icons">&#xE03B;</i></a
                       >
                       <a
-                        href="patient-profile"
+                        (click)="getPatient(patient._id)"
                         class="view"
                         title="View"
                         data-toggle="tooltip"
@@ -177,7 +181,11 @@
                       <a class="edit" title="Edit" data-toggle="tooltip"
                         ><i class="material-icons">&#xE254;</i></a
                       >
-                      <a class="delete" title="Delete" data-toggle="tooltip"
+                      <a
+                        class="delete"
+                        title="Delete"
+                        data-toggle="tooltip"
+                        (click)="openModal()"
                         ><i class="material-icons">&#xE872;</i></a
                       >
                     </td>

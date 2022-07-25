@@ -1,8 +1,5 @@
 <head>
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
 <body>
@@ -12,12 +9,8 @@
         <div class="col-lg-2">
           <div class="mb-2">
             <div class="card-body text-center">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                alt="avatar"
-                class="rounded-circle img-fluid"
-                style="width: 150px"
-              />
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px" />
               <h5 class="my-3 fs-1">{{ user.name }}</h5>
               <p class="text-muted fs-5">Psychologist</p>
             </div>
@@ -33,104 +26,54 @@
                     <h2>Patient Details</h2>
                   </div>
                   <div class="col-sm-4">
-                    <!-- Button trigger modal -->
-                    <button
-                      type="button"
-                      class="btn btn-info add-new"
-                      data-bs-toggle="modal"
-                      data-bs-target="#staticBackdrop"
-                    >
+                    <!-- Button trigger modal add new patient -->
+                    <button type="button" class="btn btn-info add-new" data-bs-toggle="modal"
+                      data-bs-target="#addNewPatient">
                       <i class="fa fa-plus"></i> Add New
                     </button>
                   </div>
-                  <!-- Modal -->
-
-                  <form
-                    action="submit"
-                    [formGroup]="patientData"
-                    (submit)="submitPatient(user._id, patientData.value)"
-                  >
-                    <div
-                      class="modal fade"
-                      id="staticBackdrop"
-                      data-bs-backdrop="static"
-                      data-bs-keyboard="false"
-                      tabindex="-1"
-                      aria-labelledby="staticBackdropLabel"
-                      aria-hidden="true"
-                    >
+                  <!-- Modal add new patient -->
+                  <form action="submit" [formGroup]="patientData" (submit)="submitPatient(user._id, patientData.value)">
+                    <div class="modal fade" id="addNewPatient" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">
+                            <h5 class="modal-title" id="addNewPatient">
                               Add New Patient
                             </h5>
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            ></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
 
                           <div class="modal-body">
                             <div class="form-floating mb-2">
-                              <input
-                                type="string"
-                                class="form-control"
-                                id="floatingInput"
-                                placeholder="Name"
-                                formControlName="name"
-                              />
+                              <input type="string" class="form-control" id="floatingInput" placeholder="Name"
+                                formControlName="name" />
                               <label for="floatingInput">Name</label>
                             </div>
                             <div class="form-floating mb-2">
-                              <input
-                                type="string"
-                                class="form-control"
-                                id="floatingPassword"
-                                placeholder="Estrada"
-                                formControlName="last_name"
-                              />
+                              <input type="string" class="form-control" id="floatingPassword" placeholder="Estrada"
+                                formControlName="last_name" />
                               <label for="floatingInput">Last Name</label>
                             </div>
                             <div class="form-floating mb-2">
-                              <input
-                                type="number"
-                                class="form-control"
-                                id="floatingInput"
-                                placeholder="25"
-                                formControlName="age"
-                              />
+                              <input type="number" class="form-control" id="floatingInput" placeholder="25"
+                                formControlName="age" />
                               <label for="floatingInput">Age</label>
                             </div>
                             <div class="form-floating mb-2">
-                              <input
-                                type="string"
-                                class="form-control"
-                                id="floatingPassword"
-                                placeholder="Male"
-                                formControlName="gender"
-                              />
+                              <input type="string" class="form-control" id="floatingPassword" placeholder="Male"
+                                formControlName="gender" />
                               <label for="floatingInput">Gender</label>
                             </div>
                             <div class="form-floating mb-2">
-                              <input
-                                type="email"
-                                class="form-control"
-                                id="floatingInput"
-                                placeholder="name@example.com"
-                                formControlName="email"
-                              />
+                              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                                formControlName="email" />
                               <label for="floatingInput">Email</label>
                             </div>
                           </div>
                           <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-secondary"
-                              data-bs-dismiss="modal"
-                            >
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                               Close
                             </button>
                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
@@ -143,47 +86,116 @@
                   </form>
                 </div>
               </div>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <td>#</td>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Email</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let patient of patients; index as i">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ patient.name }}</td>
-                    <td>{{ patient.last_name }}</td>
-                    <td>{{ patient.age }}</td>
-                    <td>{{ patient.gender }}</td>
-                    <td>{{ patient.email }}</td>
-                    <td>
-                      <a class="add" title="Add" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE03B;</i></a
-                      >
-                      <a
-                        href="patient-profile"
-                        class="view"
-                        title="View"
-                        data-toggle="tooltip"
-                        ><i class="material-icons">&#xE417;</i></a
-                      >
-                      <a class="edit" title="Edit" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE254;</i></a
-                      >
-                      <a class="delete" title="Delete" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE872;</i></a
-                      >
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <!-- tabla de pacientes -->
+              <div class="patients">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <td>#</td>
+                      <th>Name</th>
+                      <th>Last Name</th>
+                      <th>Age</th>
+                      <th>Gender</th>
+                      <th>Email</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let patient of patients; index as i">
+                      <td>{{ i + 1 }}</td>
+                      <td>{{ patient.name }}</td>
+                      <td>{{ patient.last_name }}</td>
+                      <td>{{ patient.age }}</td>
+                      <td>{{ patient.gender }}</td>
+                      <td>{{ patient.email }}</td>
+                      <td>
+                        <a type="button" class="view" title="View" data-toggle="tooltip" href="patient-profile"><i
+                            class="material-icons">&#xE417;</i></a>
+                        <a type="button" class="edit" title="Edit" data-bs-toggle="modal" data-bs-target="#editPatient">
+                          <i class="material-icons">&#xE254;</i>
+                        </a>
+                        <a type="button" class="delete" title="Delete" data-bs-toggle="modal"
+                          data-bs-target="#deletePatient">
+                          <i class="material-icons">&#xE872;</i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Modal edit patient -->
+              <form action="submit" [formGroup]="patientData" (submit)="submitPatient(user._id, patientData.value)">
+                <div class="modal fade" id="editPatient" data-bs-backdrop="static" data-bs-keyboard="false"
+                  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">
+                          Edit Patient
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+
+                      <div class="modal-body">
+                        <div class="form-floating mb-2">
+                          <input type="string" class="form-control" id="floatingInput" placeholder="Name"
+                            formControlName="name" />
+                          <label for="floatingInput">Name</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                          <input type="string" class="form-control" id="floatingPassword" placeholder="Estrada"
+                            formControlName="last_name" />
+                          <label for="floatingInput">Last Name</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                          <input type="number" class="form-control" id="floatingInput" placeholder="25"
+                            formControlName="age" />
+                          <label for="floatingInput">Age</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                          <input type="string" class="form-control" id="floatingPassword" placeholder="Male"
+                            formControlName="gender" />
+                          <label for="floatingInput">Gender</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                            formControlName="email" />
+                          <label for="floatingInput">Email</label>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                          Close
+                        </button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <!-- Modal delete patient -->
+              <div class="modal fade" id="deletePatient" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Delete Patient</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <h6>Are you sure to eliminate the patient?</h6>
+                      <h6>This option cannot be reversed</h6>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

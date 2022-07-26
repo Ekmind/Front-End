@@ -189,8 +189,7 @@
                           type="button"
                           class="delete"
                           title="Delete"
-                          data-bs-toggle="modal"
-                          data-bs-target="#deletePatient"
+                          (click)="openAlertModal(patient._id)"
                         >
                           <i class="material-icons">&#xE872;</i>
                         </a>

@@ -94,4 +94,9 @@ export class ExpedientComponent implements OnInit {
     this.app.openPatientUpdate();
     sessionStorage.setItem('patient_id', patient_id);
   }
+
+  openAlertModal(patient_id: any) {
+    this.app.openAlert();
+    sessionStorage.setItem('patient_id', patient_id);
+  }
 }

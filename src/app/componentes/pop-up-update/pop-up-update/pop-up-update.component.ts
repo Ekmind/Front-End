@@ -16,12 +16,12 @@ export class PopUpUpdateComponent implements OnInit {
   patient: any;
   patient_id: any;
   patientData = this.formBuilder.group({
-    name: '',
-    last_name: '',
-    age: '',
-    gender: '',
-    email: '',
-    phone: '',
+    name: undefined,
+    last_name: undefined,
+    age: undefined,
+    gender: undefined,
+    email: undefined,
+    phone: undefined,
   });
   constructor(
     private http: HttpClient,
@@ -44,7 +44,14 @@ export class PopUpUpdateComponent implements OnInit {
     this.http
       .patch(
         this.localURL + `api/update/patient/${this.patient_id}`,
-        { update },
+        {
+          name: update.name || this.patient.name,
+          last_name: update.last_name || this.patient.last_name,
+          age: update.age || this.patient.age,
+          gender: update.gender || this.patient.gender,
+          email: update.email || this.patient.email,
+          phone: update.phone || this.patient.phone,
+        },
         { withCredentials: true }
       )
       .subscribe((res: any) => {
@@ -54,5 +61,6 @@ export class PopUpUpdateComponent implements OnInit {
 
   closeModal() {
     this.modal.closeAll();
+    document.location.reload();
   }
 }

@@ -88,6 +88,14 @@ export class ExpedientComponent implements OnInit {
       });
   }
 
+  updatePatient(patient_id: any, update: any) {
+    this.http.patch(
+      this.localURL + `api/update/patient/${patient_id}`,
+      { update },
+      { withCredentials: true }
+    );
+  }
+
   async deletePatient(patient_id: any) {}
 
   openModal() {

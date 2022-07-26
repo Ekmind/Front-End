@@ -12,6 +12,10 @@ export class AppComponent {
 
   constructor(private modal: MatDialog) {}
 
+  openPatientUpdate() {
+    this.modal;
+  }
+
   openAlert() {
     this.modal.open(PopUpAlertComponent, { panelClass: 'alert_modal' });
   }

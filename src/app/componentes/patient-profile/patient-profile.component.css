@@ -1,5 +1,4 @@
-/* .table-wrapper {
-    width: 850px;
+.table-wrapper {
     background: #fff;
     padding: 20px 30px 5px;
     margin: 30px auto;
@@ -47,7 +46,11 @@ table.table tr th:first-child {
 }
 
 table.table tr th:last-child {
-    width: 100px;
+    width: 80px;
+}
+
+table.table tr th:last-child {
+    width: 500px;
 }
 
 table.table-striped tbody tr:nth-of-type(odd) {
@@ -58,17 +61,3 @@ table.table-striped.table-hover tbody tr:hover {
     background: #f5f5f5;
 }
 
-table.table td a {
-    color: #2196f3;
-}
-
-table.table td .btn.manage {
-    padding: 2px 10px;
-    background: #37BC9B;
-    color: #fff;
-    border-radius: 2px;
-}
-
-table.table td .btn.manage:hover {
-    background: #2e9c81;
-} */

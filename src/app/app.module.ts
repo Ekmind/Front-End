@@ -19,6 +19,7 @@ import { DemoCameraComponent } from './componentes/demo-camera/demo-camera.compo
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PopUpAlertComponent } from './componentes/pop-up-alert/pop-up-alert.component';
+import { PopUpUpdateComponent } from './componentes/pop-up-update/pop-up-update/pop-up-update.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PopUpAlertComponent } from './componentes/pop-up-alert/pop-up-alert.com
     ExpedientComponent,
     DemoCameraComponent,
     PopUpAlertComponent,
+    PopUpUpdateComponent,
   ],
   entryComponents: [PopUpAlertComponent],
   imports: [

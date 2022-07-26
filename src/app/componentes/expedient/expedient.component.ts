@@ -23,7 +23,7 @@ export class ExpedientComponent implements OnInit {
   patientData = this.formBuilder.group({
     name: '',
     last_name: '',
-    age: Number,
+    age: '',
     gender: '',
     email: '',
   });
@@ -88,17 +88,10 @@ export class ExpedientComponent implements OnInit {
       });
   }
 
-  updatePatient(patient_id: any, update: any) {
-    this.http.patch(
-      this.localURL + `api/update/patient/${patient_id}`,
-      { update },
-      { withCredentials: true }
-    );
-  }
-
   async deletePatient(patient_id: any) {}
 
-  openModal() {
-    this.app.openAlert();
+  openUpdateModal(patient_id: any) {
+    this.app.openPatientUpdate();
+    sessionStorage.setItem('patient_id', patient_id);
   }
 }

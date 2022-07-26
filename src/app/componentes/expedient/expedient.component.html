@@ -177,7 +177,12 @@
                           (click)="getPatient(patient._id)"
                           ><i class="material-icons">&#xE417;</i></a
                         >
-                        <a type="button" class="edit" title="Edit">
+                        <a
+                          type="button"
+                          class="edit"
+                          title="Edit"
+                          (click)="openUpdateModal(patient._id)"
+                        >
                           <i class="material-icons">&#xE254;</i>
                         </a>
                         <a
@@ -195,11 +200,7 @@
                 </table>
               </div>
               <!-- Modal edit patient -->
-              <form
-                action="submit"
-                [formGroup]="patientData"
-                (submit)="updatePatient(user._id, patientData.value)"
-              >
+              <form action="submit" [formGroup]="patientData">
                 <div
                   class="modal fade"
                   id="editPatient"

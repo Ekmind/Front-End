@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor.interface';
 import { Patient } from 'src/app/models/patient';
@@ -6,7 +7,8 @@ import { Patients } from 'src/app/interfaces/patients.interface';
 import { AuthService } from 'src/services/authe/auth.service';
 import { environment } from 'src/environments/environment';
 import { ManagementService } from 'src/services/patients/management.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-expedient',
@@ -21,16 +23,19 @@ export class ExpedientComponent implements OnInit {
   patientData = this.formBuilder.group({
     name: '',
     last_name: '',
-    age: Number,
+    age: '',
     gender: '',
     email: '',
   });
 
   constructor(
-    private auth: AuthService,
+    private router: Router,
     private http: HttpClient,
+    private auth: AuthService,
+    private app: AppComponent,
     private pat: ManagementService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private patientManagement: ManagementService
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +63,18 @@ export class ExpedientComponent implements OnInit {
       });
   }
 
-  newPatient() {}
+  getPatient(patient_id: any) {
+    console.log({ patient_id: patient_id });
+    this.http
+      .get(this.localURL + `api/get/patient/${patient_id}`, {
+        withCredentials: true,
+      })
+      .subscribe((res: any) => {
+        console.log(res.patient);
+        this.patientManagement.patient = res.patient;
+        this.router.navigate(['/patient-profile']);
+      });
+  }
 
   submitPatient(user_id: any, patient: any) {
     console.log({ user: user_id, patient: patient });
@@ -70,5 +86,12 @@ export class ExpedientComponent implements OnInit {
         console.log(res);
         this.ngOnInit();
       });
+  }
+
+  async deletePatient(patient_id: any) {}
+
+  openUpdateModal(patient_id: any) {
+    this.app.openPatientUpdate();
+    sessionStorage.setItem('patient_id', patient_id);
   }
 }

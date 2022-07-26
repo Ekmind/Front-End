@@ -26,9 +26,6 @@ export class AuthService {
         this.localURL + 'api/login',
         { email: email, password: password },
         {
-          headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-          }),
           withCredentials: true,
         }
       )

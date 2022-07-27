@@ -4,6 +4,8 @@
     [formGroup]="patientData"
     (submit)="updatePatient(patientData.value)"
   >
+  <div class="modal-dialog modal-dialog-centered mt-5">
+    <div class="modal-body">
     <div>
       <label for="name">Name</label>
       <br />
@@ -59,17 +61,20 @@
         formControlName="gender"
       />
     </div>
-    <div class="buttons">
-      <button class="btn btn-secondary button" (click)="closeModal()">
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="closeModal()">
         Close
       </button>
       <button
         type="submit"
-        class="btn btn-primary button"
+        class="btn btn-primary"
+        data-bs-dismiss="modal"
         (click)="closeModal()"
       >
         Save
       </button>
+    </div>
+    </div>
     </div>
   </form>
 </div>

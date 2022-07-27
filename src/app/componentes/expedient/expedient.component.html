@@ -58,7 +58,7 @@
                       aria-labelledby="staticBackdropLabel"
                       aria-hidden="true"
                     >
-                      <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-dialog modal-dialog-centered mt-5">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="addNewPatient">
@@ -122,6 +122,16 @@
                                 formControlName="email"
                               />
                               <label for="floatingInput">Email</label>
+                            </div>
+                            <div class="form-floating mb-2">
+                              <input
+                                type="phone"
+                                class="form-control"
+                                id="floatingInput"
+                                placeholder="(614) 195 50 41"
+                                formControlName="phone"
+                              />
+                              <label for="floatingInput">Phone Number</label>
                             </div>
                           </div>
                           <div class="modal-footer">
@@ -197,145 +207,6 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
-              <!-- Modal edit patient -->
-              <form action="submit" [formGroup]="patientData">
-                <div
-                  class="modal fade"
-                  id="editPatient"
-                  data-bs-backdrop="static"
-                  data-bs-keyboard="false"
-                  tabindex="-1"
-                  aria-labelledby="staticBackdropLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">
-                          Edit Patient
-                        </h5>
-                        <button
-                          type="button"
-                          class="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-
-                      <div class="modal-body">
-                        <div class="form-floating mb-2">
-                          <input
-                            type="string"
-                            class="form-control"
-                            id="floatingInput"
-                            placeholder="Name"
-                            formControlName="name"
-                          />
-                          <label for="floatingInput">Name</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                          <input
-                            type="string"
-                            class="form-control"
-                            id="floatingPassword"
-                            placeholder="Estrada"
-                            formControlName="last_name"
-                          />
-                          <label for="floatingInput">Last Name</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                          <input
-                            type="number"
-                            class="form-control"
-                            id="floatingInput"
-                            placeholder="25"
-                            formControlName="age"
-                          />
-                          <label for="floatingInput">Age</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                          <input
-                            type="string"
-                            class="form-control"
-                            id="floatingPassword"
-                            placeholder="Male"
-                            formControlName="gender"
-                          />
-                          <label for="floatingInput">Gender</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                          <input
-                            type="email"
-                            class="form-control"
-                            id="floatingInput"
-                            placeholder="name@example.com"
-                            formControlName="email"
-                          />
-                          <label for="floatingInput">Email</label>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button
-                          type="submit"
-                          class="btn btn-primary"
-                          data-bs-dismiss="modal"
-                        >
-                          Save
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <!-- Modal delete patient -->
-              <div
-                class="modal fade"
-                id="deletePatient"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="staticBackdropLabel">
-                        Delete Patient
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <h6>Are you sure to eliminate the patient?</h6>
-                      <h6>This option cannot be reversed</h6>
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" class="btn btn-primary">
-                        Understood
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

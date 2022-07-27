@@ -1,80 +1,52 @@
-<div class="form-container">
-  <form
-    action="submit"
-    [formGroup]="patientData"
-    (submit)="updatePatient(patientData.value)"
-  >
-  <div class="modal-dialog modal-dialog-centered mt-5">
-    <div class="modal-body">
-    <div>
-      <label for="name">Name</label>
-      <br />
-      <input
-        type="text"
-        id="name"
-        class="input"
-        [placeholder]="patient.name"
-        formControlName="name"
-      />
+<form action="submit" [formGroup]="patientData" (submit)="updatePatient(patientData.value)">
+  <div class=" modal-edit">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          Add New Patient
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <label for="name">Name</label>
+          <br />
+          <input type="text" id="name" class="form-control" [placeholder]="patient.name" formControlName="name" />
+        </div>
+        <div>
+          <label for="last_name">Last Name</label>
+          <br />
+          <input type="text" id="last_name" class="form-control" [placeholder]="patient.last_name"
+            formControlName="last_name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <br />
+          <input type="email" id="email" class="form-control" [placeholder]="patient.email" formControlName="email" />
+        </div>
+        <div>
+          <label for="age">Age</label>
+          <br />
+          <input type="number" id="age" class="form-control" [placeholder]="patient.age" formControlName="age" />
+        </div>
+        <div>
+          <label for="gender">Gender</label>
+          <br />
+          <input type="text" id="gender" class="form-control" [placeholder]="patient.gender" formControlName="gender" />
+        </div>
+        <div>
+          <label for="gender">Phone Number</label>
+          <br />
+          <input type="text" id="phone" class="form-control" [placeholder]="patient.phone" formControlName="phone" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary button" (click)="closeModal()">
+          Close
+        </button>
+        <button type="submit" class="btn btn-primary button" (click)="closeModal()">
+          Save
+        </button>
+      </div>
     </div>
-    <div>
-      <label for="last_name">Last Name</label>
-      <br />
-      <input
-        type="text"
-        id="last_name"
-        class="input"
-        [placeholder]="patient.last_name"
-        formControlName="last_name"
-      />
-    </div>
-    <div>
-      <label for="email">Email</label>
-      <br />
-      <input
-        type="email"
-        id="email"
-        class="input"
-        [placeholder]="patient.email"
-        formControlName="email"
-      />
-    </div>
-    <div>
-      <label for="age">Age</label>
-      <br />
-      <input
-        type="number"
-        id="age"
-        class="input"
-        [placeholder]="patient.age"
-        formControlName="age"
-      />
-    </div>
-    <div>
-      <label for="gender">Gender</label>
-      <br />
-      <input
-        type="text"
-        id="gender"
-        class="input"
-        [placeholder]="patient.gender"
-        formControlName="gender"
-      />
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-secondary" (click)="closeModal()">
-        Close
-      </button>
-      <button
-        type="submit"
-        class="btn btn-primary"
-        data-bs-dismiss="modal"
-        (click)="closeModal()"
-      >
-        Save
-      </button>
-    </div>
-    </div>
-    </div>
-  </form>
-</div>
+</form>

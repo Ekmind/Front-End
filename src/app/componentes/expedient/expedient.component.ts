@@ -26,6 +26,7 @@ export class ExpedientComponent implements OnInit {
     age: '',
     gender: '',
     email: '',
+    phone: '',
   });
 
   constructor(

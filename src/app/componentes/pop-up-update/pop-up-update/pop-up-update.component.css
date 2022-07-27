@@ -1,4 +1,12 @@
 .modal-edit{
   width: 350px;
+  height: 510px;
 }
 
+.modal-footer modal-header{
+  height: 30px;
+}
+
+.modal-header{
+  height: 50px;
+}

@@ -33,18 +33,17 @@
                     <h2>Patient Details</h2>
                   </div>
                   <div class="col-sm-4">
-                    <!-- Button trigger modal -->
+                    <!-- Button trigger modal add new patient -->
                     <button
                       type="button"
                       class="btn btn-info add-new"
                       data-bs-toggle="modal"
-                      data-bs-target="#staticBackdrop"
+                      data-bs-target="#addNewPatient"
                     >
                       <i class="fa fa-plus"></i> Add New
                     </button>
                   </div>
-                  <!-- Modal -->
-
+                  <!-- Modal add new patient -->
                   <form
                     action="submit"
                     [formGroup]="patientData"
@@ -52,17 +51,17 @@
                   >
                     <div
                       class="modal fade"
-                      id="staticBackdrop"
+                      id="addNewPatient"
                       data-bs-backdrop="static"
                       data-bs-keyboard="false"
                       tabindex="-1"
                       aria-labelledby="staticBackdropLabel"
                       aria-hidden="true"
                     >
-                      <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-dialog modal-dialog-centered mt-5">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">
+                            <h5 class="modal-title" id="addNewPatient">
                               Add New Patient
                             </h5>
                             <button
@@ -124,6 +123,16 @@
                               />
                               <label for="floatingInput">Email</label>
                             </div>
+                            <div class="form-floating mb-2">
+                              <input
+                                type="phone"
+                                class="form-control"
+                                id="floatingInput"
+                                placeholder="(614) 195 50 41"
+                                formControlName="phone"
+                              />
+                              <label for="floatingInput">Phone Number</label>
+                            </div>
                           </div>
                           <div class="modal-footer">
                             <button
@@ -133,7 +142,11 @@
                             >
                               Close
                             </button>
-                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                            <button
+                              type="submit"
+                              class="btn btn-primary"
+                              data-bs-dismiss="modal"
+                            >
                               Save
                             </button>
                           </div>
@@ -143,47 +156,58 @@
                   </form>
                 </div>
               </div>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <td>#</td>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Email</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let patient of patients; index as i">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ patient.name }}</td>
-                    <td>{{ patient.last_name }}</td>
-                    <td>{{ patient.age }}</td>
-                    <td>{{ patient.gender }}</td>
-                    <td>{{ patient.email }}</td>
-                    <td>
-                      <a class="add" title="Add" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE03B;</i></a
-                      >
-                      <a
-                        href="patient-profile"
-                        class="view"
-                        title="View"
-                        data-toggle="tooltip"
-                        ><i class="material-icons">&#xE417;</i></a
-                      >
-                      <a class="edit" title="Edit" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE254;</i></a
-                      >
-                      <a class="delete" title="Delete" data-toggle="tooltip"
-                        ><i class="material-icons">&#xE872;</i></a
-                      >
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <!-- tabla de pacientes -->
+              <div class="patients">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <td>#</td>
+                      <th>Name</th>
+                      <th>Last Name</th>
+                      <th>Age</th>
+                      <th>Gender</th>
+                      <th>Email</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let patient of patients; index as i">
+                      <td>{{ i + 1 }}</td>
+                      <td>{{ patient.name }}</td>
+                      <td>{{ patient.last_name }}</td>
+                      <td>{{ patient.age }}</td>
+                      <td>{{ patient.gender }}</td>
+                      <td>{{ patient.email }}</td>
+                      <td>
+                        <a
+                          type="button"
+                          class="view"
+                          title="View"
+                          data-toggle="tooltip"
+                          (click)="getPatient(patient._id)"
+                          ><i class="material-icons">&#xE417;</i></a
+                        >
+                        <a
+                          type="button"
+                          class="edit"
+                          title="Edit"
+                          (click)="openUpdateModal(patient._id)"
+                        >
+                          <i class="material-icons">&#xE254;</i>
+                        </a>
+                        <a
+                          type="button"
+                          class="delete"
+                          title="Delete"
+                          (click)="openAlertModal(patient._id)"
+                        >
+                          <i class="material-icons">&#xE872;</i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

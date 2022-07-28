@@ -10,20 +10,7 @@ export class ManagementService {
   private readonly localURL = `${environment.localURL}`;
 
   public patients = <any>[];
-
-  public patient = {
-    _id: String,
-    name: String,
-    last_name: String,
-    age: Number,
-    gender: String,
-    phone: Number,
-    image: String,
-    email: String,
-    isActive: Boolean,
-    createdAt: Date,
-    updatedAt: Date,
-  };
+  patient: any;
 
   constructor(private http: HttpClient) {}
 }

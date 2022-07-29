@@ -6,9 +6,11 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadscriptService } from 'src/app/services/loadscript.service';
 import { environment } from 'src/environments/environment';
+import { ReloadService } from 'src/services/reload/reload.service';
 
 @Component({
   selector: 'app-camera',
@@ -19,8 +21,10 @@ export class CameraComponent implements AfterViewInit {
   private readonly mainURL = `${environment.apiURL}`;
   private readonly localURL = `${environment.localURL}`;
   patient_id: any;
+  notesData = this.formBuilder.group({
+    notes: '',
+  });
   appointment = {
-    date: '',
     notes: '',
     emotional_data: [],
   };
@@ -33,7 +37,9 @@ export class CameraComponent implements AfterViewInit {
   constructor(
     private loadScript: LoadscriptService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private reload: ReloadService
   ) {
     loadScript.load(['emotions']);
     loadScript.load(['charts']);
@@ -62,11 +68,31 @@ export class CameraComponent implements AfterViewInit {
     }
   }
 
-  endSession() {
-    this.http.post(
-      this.localURL + `api/create/appointment/${this.patient_id}`,
-      {},
-      { withCredentials: true }
-    );
+  endSession(notes: any) {
+    let newDate = new Date();
+    const dd = newDate.getDate();
+    const mm = newDate.getMonth() + 1;
+    const yyyy = newDate.getFullYear();
+
+    const date = dd + '/' + mm + '/' + yyyy;
+
+    console.log(date);
+
+    // JSON.stringify(notes.notes);
+
+    this.http
+      .post(
+        this.localURL + `api/create/appointment/${this.patient_id}`,
+        {
+          date: date,
+          notes: notes.notes,
+        },
+        { withCredentials: true }
+      )
+      .subscribe((res: any) => {
+        console.log(res);
+      });
+    this.reload.askForReload(true);
+    this.router.navigate(['/patient-profile']);
   }
 }

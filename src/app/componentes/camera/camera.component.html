@@ -5,6 +5,12 @@
         <div class="col flex-column justify-content-center" id="lol">
           <div class="input-group mt-5 justify-content-center">
             <div class="input-group-prepend">
+              <button id="btnStart" class="btn btn-outline-secondary">
+                Start
+              </button>
+              <button id="btnStop" class="btn btn-outline-secondary">
+                Stop
+              </button>
               <button
                 id="button"
                 class="btn btn-outline-secondary"
@@ -18,8 +24,17 @@
             </select>
           </div>
           <div class="col">
-            <div class="video-container mt-3 rounded-circle" *ngIf="!error">
-              <video #video id="video" playsinline autoplay></video>
+            <div class="video-container mt-3 rounded-circle">
+              <video
+                #video
+                id="video"
+                playsinline
+                autoplay
+                *ngIf="!error"
+              ></video>
+              <div class="videoPlaceholder" *ngIf="error">
+                Pleace turn on your camera
+              </div>
             </div>
           </div>
         </div>
@@ -38,6 +53,7 @@
             <canvas class="charts" id="chart"></canvas>
           </div>
         </div>
+        <button class="btn btn-outline-secondary">End Session</button>
       </div>
     </div>
   </section>

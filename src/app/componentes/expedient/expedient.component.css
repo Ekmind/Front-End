@@ -1,11 +1,12 @@
 .patients{
-    height: 350px;
+    height: 400px;
+    /* width: 800px; */
     overflow:scroll;
     overflow-x: hidden;
 }
 
 .table-wrapper {
-    width: 700px;
+    width: 800px;
     margin: 30px auto;
     background: #fff;
     padding: 20px;

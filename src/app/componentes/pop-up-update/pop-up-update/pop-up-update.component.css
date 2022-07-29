@@ -1,23 +1,12 @@
-.form-container {
-  display: flex;
-  width: 300px;
-  height: 350px;
-  align-items: center;
-  justify-content: center;
+.modal-edit{
+  width: 350px;
+  height: 510px;
 }
 
-.input {
-  width: 300px;
+.modal-footer modal-header{
+  height: 30px;
 }
 
-.buttons {
-  position: relative;
-  bottom: 1px;
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.button {
-  margin: 0 10px;
+.modal-header{
+  height: 50px;
 }

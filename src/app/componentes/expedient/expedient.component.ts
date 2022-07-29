@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/doctor.interface';
-import { Patient } from 'src/app/models/patient';
 import { Patients } from 'src/app/interfaces/patients.interface';
-import { AuthService } from 'src/services/authe/auth.service';
 import { environment } from 'src/environments/environment';
 import { ManagementService } from 'src/services/patients/management.service';
 import { FormBuilder } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
+import { Subscription } from 'rxjs';
+import { ReloadService } from 'src/services/reload/reload.service';
 
 @Component({
   selector: 'app-expedient',
@@ -28,22 +28,33 @@ export class ExpedientComponent implements OnInit {
     email: '',
   });
 
+  reloadCommand: any;
+  private subscriptionName: Subscription;
+
   constructor(
     private router: Router,
     private http: HttpClient,
-    private auth: AuthService,
     private app: AppComponent,
-    private pat: ManagementService,
     private formBuilder: FormBuilder,
-    private patientManagement: ManagementService
-  ) {}
+    private patientManagement: ManagementService,
+    private reloadService: ReloadService
+  ) {
+    this.subscriptionName = this.reloadService
+      .reload()
+      .subscribe((res: any) => {
+        if (res.reload === true) {
+          return this.getUser();
+        }
+        return;
+      });
+  }
 
   ngOnInit(): void {
     this.getUser();
   }
 
-  getUser(): void {
-    this.http
+  async getUser() {
+    await this.http
       .get(this.localURL + 'api/login', { withCredentials: true })
       .subscribe((res: any) => {
         this.user = res.user;
@@ -51,14 +62,13 @@ export class ExpedientComponent implements OnInit {
       });
   }
 
-  async list(user_id: any): Promise<void> {
-    await console.log({ user_id: user_id });
+  async list(user_id: any) {
+    // await console.log({ user_id: user_id });
     await this.http
       .get(this.localURL + `api/get/all/patients/${user_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {
-        console.log(res);
         this.patients = res.patients;
       });
   }
@@ -70,7 +80,6 @@ export class ExpedientComponent implements OnInit {
         withCredentials: true,
       })
       .subscribe((res: any) => {
-        console.log(res.patient);
         this.patientManagement.patient = res.patient;
         this.router.navigate(['/patient-profile']);
       });
@@ -83,12 +92,9 @@ export class ExpedientComponent implements OnInit {
         withCredentials: true,
       })
       .subscribe((res: any) => {
-        console.log(res);
-        this.ngOnInit();
+        this.getUser();
       });
   }
-
-  async deletePatient(patient_id: any) {}
 
   openUpdateModal(patient_id: any) {
     this.app.openPatientUpdate();

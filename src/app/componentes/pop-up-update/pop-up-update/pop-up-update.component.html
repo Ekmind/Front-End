@@ -11,7 +11,7 @@
         type="text"
         id="name"
         class="input"
-        [placeholder]="patient.name"
+        [placeholder]="patient.name | async"
         formControlName="name"
       />
     </div>
@@ -22,7 +22,7 @@
         type="text"
         id="last_name"
         class="input"
-        [placeholder]="patient.last_name"
+        [placeholder]="patient.last_name | async"
         formControlName="last_name"
       />
     </div>

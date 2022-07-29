@@ -32,6 +32,7 @@ window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
    const emotions = evt.detail.output.emotion;
    const labels = [];
    const data = [];
+   console.log(emotions);
     
    Object.keys(emotions).forEach(k => {
       labels.push(k);

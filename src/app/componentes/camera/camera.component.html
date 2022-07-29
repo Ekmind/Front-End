@@ -53,5 +53,25 @@
             <canvas class="charts" id="chart"></canvas>
           </div>
         </div>
-        <button class="btn btn-outline-secondary">End Session</button>
+        <div class="notes-container">
+          <form
+            action=""
+            class="notes-form"
+            [formGroup]="notesData"
+            (submit)="endSession(notesData.value)"
+          >
+            <label for="notes" class="notes-title">Notes</label>
+            <textarea
+              name="notes"
+              id="notes"
+              cols="30"
+              rows="10"
+              class="notes"
+              formControlName="notes"
+            ></textarea>
+            <button class="btn btn-outline-secondary end-session" type="submit">
+              End Session
+            </button>
+          </form>
+        </div>
       </div>

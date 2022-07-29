@@ -44,3 +44,28 @@ canvas {
   background-color: black;
   color: white;
 }
+
+.notes-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.notes-title {
+  position: relative;
+  top: -40px;
+  left: 45px;
+}
+
+.notes {
+  width: 80%;
+  height: 50px;
+  resize: none;
+}
+
+.end-session {
+  width: 50%;
+  margin-top: 20px;
+}

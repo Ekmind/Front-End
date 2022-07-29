@@ -5,6 +5,8 @@ import { ExpedientComponent } from '../expedient/expedient.component';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Sessions } from 'src/app/interfaces/sessions.interface';
+import { Subscription } from 'rxjs';
+import { ReloadService } from 'src/services/reload/reload.service';
 
 @Component({
   selector: 'app-patient-profile',
@@ -15,11 +17,23 @@ export class PatientProfileComponent implements OnInit {
   private readonly mainURL = `${environment.apiURL}`;
   private readonly localURL = `${environment.localURL}`;
 
+  private subscriptionName: Subscription;
+
   constructor(
     private expedientData: ExpedientComponent,
     private patientManagement: ManagementService,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private reloadService: ReloadService
+  ) {
+    this.subscriptionName = this.reloadService
+      .reload()
+      .subscribe((res: any) => {
+        if (res.reload === true) {
+          return this.getSessions(this.patient_id);
+        }
+        return;
+      });
+  }
 
   patient_id: any;
   patient: any;

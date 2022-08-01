@@ -9,9 +9,10 @@
   <section>
     <div class="container">
       <div class="row vh-100 justify-content-around align-items-center">
-        <div class="col-lg-2">
+        <div class="col-lg-2 avatar">
           <div class="mb-2">
             <div class="card-body text-center">
+              <p class="text-muted fs-4">Psychologist</p>
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                 alt="avatar"
@@ -19,7 +20,8 @@
                 style="width: 150px"
               />
               <h5 class="my-3 fs-1">{{ user.name }}</h5>
-              <p class="text-muted fs-5">Psychologist</p>
+              <h5 class="my-3 fs-3">{{ user.last_name }}</h5>
+              <h5 class="my-3 fs-6">{{ user.email }}</h5>
             </div>
           </div>
         </div>

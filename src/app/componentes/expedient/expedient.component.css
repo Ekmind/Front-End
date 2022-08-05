@@ -1,7 +1,15 @@
-.patients{
-    height: 400px;
-    /* width: 800px; */
-    overflow:scroll;
+body {
+    background: linear-gradient(to left, #85D8CE, #1975a7);
+}
+
+.avatar {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+.patients {
+    height: 350px;
+    overflow: scroll;
     overflow-x: hidden;
 }
 
@@ -9,6 +17,7 @@
     width: 800px;
     margin: 30px auto;
     background: #fff;
+    border-radius: 20px;
     padding: 20px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
@@ -68,11 +77,11 @@ table.table td i {
 }
 
 /* table.table td a.add i {
-    font-size: 24px;
-    margin-right: -1px;
-    position: relative;
-    top: 3px;
-} */
+        font-size: 24px;
+        margin-right: -1px;
+        position: relative;
+        top: 3px;
+    } */
 
 table.table .form-control {
     height: 32px;

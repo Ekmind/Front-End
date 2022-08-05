@@ -40,12 +40,11 @@ export class CameraComponent implements AfterViewInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private reload: ReloadService
-  ) {
-    loadScript.load(['emotions']);
-    loadScript.load(['charts']);
-    loadScript.load(['selectcamera']);
-  }
+  ) {}
   async ngAfterViewInit() {
+    this.loadScript.load(['emotions']);
+    this.loadScript.load(['charts']);
+    this.loadScript.load(['selectcamera']);
     this.patient_id = sessionStorage.getItem('patient_id');
     await this.setupDevices();
   }

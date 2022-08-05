@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to left, #85D8CE, #1975a7);
+    background: linear-gradient(to left, #9bc5c3, #DDEFBB);
 }
 
 .avatar {
@@ -44,7 +44,7 @@ body {
 
 table.table tr th,
 table.table tr td {
-    border-color: #e9e9e9;
+    border-color: #e9e9e9; 
 }
 
 table.table th i {

@@ -167,13 +167,8 @@ const EMOTIONS = [
     resetTimeout();
     chart.update(getCurrentTime(), evt.detail.output.emotion);
   });
-  const startButton = document.querySelector("#start_over");
-  startButton.onclick = () => {
-    startButton.style.display = "none";
-    initSDK.then(({start}) => start());
-  };
   
-  
+    
   
   
   

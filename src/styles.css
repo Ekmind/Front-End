@@ -1,6 +1,10 @@
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 /* position */
 .toast-center-center {
   top: 50%;
@@ -80,6 +84,7 @@
 /*Additional properties for button version
    iOS requires the button element instead of an anchor tag.
    If you want the anchor version, it requires `href="#"`.*/
+
 button.toast-close-button {
   padding: 0;
   cursor: pointer;

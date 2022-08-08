@@ -12,6 +12,8 @@ import { LoadscriptService } from 'src/app/services/loadscript.service';
 import { environment } from 'src/environments/environment';
 import { ReloadService } from 'src/services/reload/reload.service';
 
+declare function emotions(): any;
+
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
@@ -40,20 +42,29 @@ export class CameraComponent implements AfterViewInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private reload: ReloadService
-  ) {}
+  ) {
+    loadScript.load(['emotions']);
+    loadScript.load(['charts']);
+    loadScript.load(['selectcamera']);
+    this.emotionsInfo();
+  }
+
   async ngAfterViewInit() {
     this.loadScript.load(['emotions']);
     this.loadScript.load(['charts']);
     this.loadScript.load(['selectcamera']);
     this.patient_id = sessionStorage.getItem('patient_id');
     await this.setupDevices();
+    emotions();
   }
+
   async setupDevices() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
           video: true,
         });
+        const tracks = stream.getTracks();
         if (stream) {
           this.video.nativeElement.srcObject = stream;
           this.video.nativeElement.play();
@@ -66,6 +77,8 @@ export class CameraComponent implements AfterViewInit {
       }
     }
   }
+
+  emotionsInfo() {}
 
   endSession(notes: any) {
     let newDate = new Date();

@@ -1,4 +1,3 @@
-
 const initSDK = new Promise((res) => {
   res(CY.loader()
     .licenseKey("01edb44ef69dda1600fe7dc0577770e331d2ce351f64")
@@ -29,14 +28,4 @@ window.addEventListener(CY.modules().FACE_GENDER.eventName, (evt) => {
 });
 window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
   emo_div.innerHTML = 'Emotion: ' + evt.detail.output.dominantEmotion;
-
-  const emotions = evt.detail.output.emotion;
-  const labels = [];
-  const data = [];
-  console.log(emotions);
-
-  Object.keys(emotions).forEach(k => {
-    labels.push(k);
-    data.push(parseInt((emotions[k] * 100).toFixed(0)));
-  });
 });

@@ -4,12 +4,23 @@ const emo = () => {
   });
 }
 
-function emotions() {
+
+function emotionalData() {
+
+  sessionStorage.removeItem('emotional data');
+
+  let emotionalArray = [];
+  let saveEmotions = new Array();
+
   window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
-    const emotionsList = evt.detail.output.emotion;
+    const emotions = evt.detail.output;
 
-    alert('The function is working')
+    if (emotions) {
+      emotionalArray.push(emotions);
+      sessionStorage.setItem('emotional data', JSON.stringify(emotionalArray));
+    }
   })
-}
 
-export default { emotions };
+
+  console.log(emotionalArray);
+}

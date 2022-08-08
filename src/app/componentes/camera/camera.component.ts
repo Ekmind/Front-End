@@ -5,6 +5,10 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
+  DoCheck,
+  OnChanges,
+  SimpleChanges,
+  OnDestroy,
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,24 +16,25 @@ import { LoadscriptService } from 'src/app/services/loadscript.service';
 import { environment } from 'src/environments/environment';
 import { ReloadService } from 'src/services/reload/reload.service';
 
-declare function emotions(): any;
+declare var emotionalData: any;
 
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
   styleUrls: ['./camera.component.css'],
 })
-export class CameraComponent implements AfterViewInit {
+export class CameraComponent implements AfterViewInit, DoCheck {
   private readonly mainURL = `${environment.apiURL}`;
   private readonly localURL = `${environment.localURL}`;
   patient_id: any;
   notesData = this.formBuilder.group({
     notes: '',
   });
-  appointment = {
-    notes: '',
-    emotional_data: [],
-  };
+
+  emotionalArray = <any>[];
+  emotional_data = <any>[];
+
+  switch = false;
 
   WIDTH = 1280;
   HEIGHT = 720;
@@ -46,16 +51,16 @@ export class CameraComponent implements AfterViewInit {
     loadScript.load(['emotions']);
     loadScript.load(['charts']);
     loadScript.load(['selectcamera']);
-    this.emotionsInfo();
+    emotionalData();
+  }
+
+  ngDoCheck(): void {
+    // if (this.switch === true) {}
   }
 
   async ngAfterViewInit() {
-    this.loadScript.load(['emotions']);
-    this.loadScript.load(['charts']);
-    this.loadScript.load(['selectcamera']);
     this.patient_id = sessionStorage.getItem('patient_id');
     await this.setupDevices();
-    emotions();
   }
 
   async setupDevices() {
@@ -78,7 +83,21 @@ export class CameraComponent implements AfterViewInit {
     }
   }
 
-  emotionsInfo() {}
+  emotionsInfo() {
+    this.emotionalArray = sessionStorage.getItem('emotional data');
+
+    this.emotional_data = JSON.parse(this.emotionalArray);
+
+    console.log(this.emotional_data);
+  }
+
+  switchOn() {
+    this.switch = true;
+  }
+
+  switchOff() {
+    this.switch = false;
+  }
 
   endSession(notes: any) {
     let newDate = new Date();
@@ -90,6 +109,10 @@ export class CameraComponent implements AfterViewInit {
 
     console.log(date);
 
+    this.emotionalArray = sessionStorage.getItem('emotional data');
+
+    this.emotional_data = JSON.parse(this.emotionalArray);
+
     // JSON.stringify(notes.notes);
 
     this.http
@@ -98,12 +121,14 @@ export class CameraComponent implements AfterViewInit {
         {
           date: date,
           notes: notes.notes,
+          emotional_data: this.emotional_data,
         },
         { withCredentials: true }
       )
       .subscribe((res: any) => {
         console.log(res);
       });
+    sessionStorage.removeItem('emotional data');
     this.reload.askForReload(true);
     this.router.navigate(['/patient-profile']);
   }

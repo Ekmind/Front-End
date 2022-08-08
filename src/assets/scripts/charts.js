@@ -166,9 +166,7 @@ const EMOTIONS = [
   window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
     resetTimeout();
     chart.update(getCurrentTime(), evt.detail.output.emotion);
-  });
-  
-    
+  });     
   
   
   

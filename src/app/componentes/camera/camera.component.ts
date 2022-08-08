@@ -7,7 +7,7 @@ import { LoadscriptService } from 'src/app/services/loadscript.service';
   templateUrl: './camera.component.html',
   styleUrls: ['./camera.component.css']
 })
-export class CameraComponent implements AfterViewInit{
+export class CameraComponent implements AfterViewInit {
   WIDTH = 1280;
   HEIGHT = 720;
   @ViewChild("video")
@@ -31,7 +31,6 @@ export class CameraComponent implements AfterViewInit{
         const stream = await navigator.mediaDevices.getUserMedia({
           video: true
         });
-        const tracks = stream.getTracks();
         if (stream) {
           this.video.nativeElement.srcObject = stream;
           this.video.nativeElement.play();
@@ -39,7 +38,6 @@ export class CameraComponent implements AfterViewInit{
         }
         else {
           this.error = "You have no output video device";
-
         }
       } catch (e) {
         this.error = e;

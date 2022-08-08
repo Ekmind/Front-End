@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { ReloadService } from 'src/services/reload/reload.service';
 import { ExpedientComponent } from '../expedient/expedient.component';
 
 @Component({
@@ -16,9 +18,10 @@ export class PopUpAlertComponent implements OnInit {
   patient_id: any;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private modal: MatDialog,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
+    private reloadService: ReloadService
   ) {}
 
   ngOnInit(): void {
@@ -32,11 +35,11 @@ export class PopUpAlertComponent implements OnInit {
       })
       .subscribe((res: any) => {
         this.closeModal();
-        document.location.reload();
       });
   }
 
   closeModal() {
     this.modal.closeAll();
+    this.reloadService.askForReload(true);
   }
 }

@@ -5,19 +5,11 @@
         <div class="col-lg-5">
           <div class="mb-4">
             <div class="card-body text-center">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
-                alt="avatar"
-                class="rounded-circle img-fluid"
-                style="width: 150px"
-              />
+              <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px" />
               <h5 class="my-3 fs-2">{{ patient.name }}</h5>
               <p class="text-muted fs-3">Patient</p>
-              <button
-                routerLink="/camera"
-                class="btn btn-outline-danger"
-                type="button"
-              >
+              <button routerLink="/camera" class="btn btn-outline-danger" type="button">
                 New Session
               </button>
             </div>
@@ -65,6 +57,7 @@
           </div>
         </div>
         <hr />
+        <!-- Seccion de citas -->
         <div class="table-wrapper mt-2">
           <div class="table-title">
             <div class="row">
@@ -83,75 +76,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr data-status="active">
-                <td>1</td>
-                <td>04/10/2013</td>
-                <td><span class="">Active</span></td>
-                <td class="">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tincidunt lectus sit amet finibus scelerisque. Mauris quis
-                  commodo felis. Aliquam et commodo nunc. Morbi malesuada
-                  condimentum dui, sed maximus nulla malesuada vel. Integer
-                  pharetra turpis quis justo pellentesque, nec convallis felis
-                  lacinia. Nullam nec mauris ac mi suscipit posuere vitae at
-                  felis.
+              <tr data-status="active" *ngFor="let session of sessions; index as i">
+                <td>{{ i + 1 }}</td>
+                <td>{{ session.date }}</td>
+                <td>
+                  <span class="">{{ session.pending }}</span>
                 </td>
-              </tr>
-              <tr data-status="inactive">
-                <td>2</td>
-                <td>05/08/2014</td>
-                <td><span class="label label-warning">Inactive</span></td>
                 <td class="">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tincidunt lectus sit amet finibus scelerisque. Mauris quis
-                  commodo felis. Aliquam et commodo nunc. Morbi malesuada
-                  condimentum dui, sed maximus nulla malesuada vel. Integer
-                  pharetra turpis quis justo pellentesque, nec convallis felis
-                  lacinia. Nullam nec mauris ac mi suscipit posuere vitae at
-                  felis.
+                  {{ session.notes }}
                 </td>
-              </tr>
-              <tr data-status="active">
-                <td>3</td>
-                <td>11/05/2015</td>
-                <td><span class="label label-success">Active</span></td>
-                <td class="">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tincidunt lectus sit amet finibus scelerisque. Mauris quis
-                  commodo felis. Aliquam et commodo nunc. Morbi malesuada
-                  condimentum dui, sed maximus nulla malesuada vel. Integer
-                  pharetra turpis quis justo pellentesque, nec convallis felis
-                  lacinia. Nullam nec mauris ac mi suscipit posuere vitae at
-                  felis.
-                </td>
-              </tr>
-              <tr data-status="expired">
-                <td>4</td>
-                <td>06/09/2016</td>
-                <td><span class="label label-danger">Expired</span></td>
-                <td class="">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tincidunt lectus sit amet finibus scelerisque. Mauris quis
-                  commodo felis. Aliquam et commodo nunc. Morbi malesuada
-                  condimentum dui, sed maximus nulla malesuada vel. Integer
-                  pharetra turpis quis justo pellentesque, nec convallis felis
-                  lacinia. Nullam nec mauris ac mi suscipit posuere vitae at
-                  felis.
-                </td>
-              </tr>
-
-              <tr data-status="inactive">
-                <td>5</td>
-                <td>12/08/2017</td>
-                <td><span class="label label-warning">Inactive</span></td>
-                <td class="">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tincidunt lectus sit amet finibus scelerisque. Mauris quis
-                  commodo felis. Aliquam et commodo nunc. Morbi malesuada
-                  condimentum dui, sed maximus nulla malesuada vel. Integer
-                  pharetra turpis quis justo pellentesque, nec convallis felis
-                  lacinia. Nullam nec mauris ac mi suscipit posuere vitae at
-                  felis.
+                <td class="buttons">
+                  <a type="button" class="edit" title="Edit">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                  <a type="button" class="delete" title="Delete">
+                    <i class="bi bi-trash3"></i>
+                  </a>
                 </td>
               </tr>
             </tbody>
@@ -161,4 +101,3 @@
     </div>
   </section>
 </body>
-

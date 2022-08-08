@@ -1,18 +1,22 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 853a793be16aa9a362156d882bf1d5a8fb67dbe9
 const initSDK = new Promise((res) => {
-   res(CY.loader()
-         .licenseKey("01edb44ef69dda1600fe7dc0577770e331d2ce351f64")
-         .addModule(CY.modules().FACE_AGE.name)
-         .addModule(CY.modules().FACE_GENDER.name)
-         .addModule(CY.modules().FACE_EMOTION.name)
-         .load());
+  res(CY.loader()
+    .licenseKey("01edb44ef69dda1600fe7dc0577770e331d2ce351f64")
+    .addModule(CY.modules().FACE_AGE.name)
+    .addModule(CY.modules().FACE_GENDER.name)
+    .addModule(CY.modules().FACE_EMOTION.name)
+    .load());
 });
 
 const age_div = document.querySelector("#age");
 const gen_div = document.querySelector("#gender");
 const emo_div = document.querySelector("#emotion");
 
-const startSDK = () => initSDK.then(({start}) => start());
-const stopSDK = () => initSDK.then(({stop}) => stop());
+const startSDK = () => initSDK.then(({ start }) => start());
+const stopSDK = () => initSDK.then(({ stop }) => stop());
 
 window.addEventListener("load", startSDK);
 window.addEventListener("load", stopSDK);
@@ -21,11 +25,11 @@ document.getElementById("btnStart").addEventListener("click", startSDK);
 document.getElementById("btnStop").addEventListener("click", stopSDK);
 
 window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
-   age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
+  age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
 });
 window.addEventListener(CY.modules().FACE_GENDER.eventName, (evt) => {
-   gen_div.innerHTML = 'Gender: ' + evt.detail.output.mostConfident;
+  gen_div.innerHTML = 'Gender: ' + evt.detail.output.mostConfident;
 });
 window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
-   emo_div.innerHTML = 'Emotion: ' + evt.detail.output.dominantEmotion;
- });
+  emo_div.innerHTML = 'Emotion: ' + evt.detail.output.dominantEmotion;
+});

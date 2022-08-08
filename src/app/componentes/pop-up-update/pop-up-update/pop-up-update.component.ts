@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { environment } from 'src/environments/environment';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ReloadService } from 'src/services/reload/reload.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pop-up-update',
@@ -26,7 +29,9 @@ export class PopUpUpdateComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private modal: MatDialog,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private reloadService: ReloadService
   ) {}
 
   ngOnInit(): void {
@@ -40,8 +45,8 @@ export class PopUpUpdateComponent implements OnInit {
       });
   }
 
-  updatePatient(update: any) {
-    this.http
+  async updatePatient(update: any) {
+    await this.http
       .patch(
         this.localURL + `api/update/patient/${this.patient_id}`,
         {
@@ -54,13 +59,11 @@ export class PopUpUpdateComponent implements OnInit {
         },
         { withCredentials: true }
       )
-      .subscribe((res: any) => {
-        console.log({ response: res.patient, data: this.patientData.value });
-      });
+      .subscribe();
   }
 
-  closeModal() {
+  closeModal(): void {
     this.modal.closeAll();
-    document.location.reload();
+    this.reloadService.askForReload(true);
   }
 }

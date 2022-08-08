@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 853a793be16aa9a362156d882bf1d5a8fb67dbe9
 const initSDK = new Promise((res) => {
   res(CY.loader()
     .licenseKey("01edb44ef69dda1600fe7dc0577770e331d2ce351f64")

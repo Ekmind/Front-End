@@ -1,6 +1,7 @@
-.nav.navbar ul.nav li {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+body {
+    background: linear-gradient(to right, #D6A4A4, #DAE2F8);
 }
+
 
 .divider:after,
 .divider:before {
@@ -16,4 +17,3 @@
     padding-right: 2.5rem;
     cursor: pointer;
 }
-

@@ -1,9 +1,9 @@
 body {
-  background-color: rgb(241, 241, 241);
+  background: linear-gradient(to left, #9bc5c3, #DDEFBB);
 }
 
-.container {
-  overflow-x: hidden;
+section{
+  margin: 70px 40px 0px 40px;
 }
 
 video {
@@ -15,24 +15,27 @@ video {
   background-color: white;
 }
 
-canvas {
-  background-color: white;
-}
-
 .wrapper {
+  background-color: white;
   border-radius: 10px;
   position: relatives;
-  width: 150%;
-  height: 150%;
   pointer-events: none;
+  margin: 0px 0px 0px 0px;
 }
 
-.charts {
+canvas {
+  background-color: white;
+  margin: 0px 0px 0px 0px;
+  width: 400px;
+}
+
+#chart.charts {
   width: 67%;
   height: 240px;
   max-height: 70%;
   max-width: 70%;
   border-radius: 10px;
+  margin: 0px 0px 0px 0px;
 }
 
 .videoPlaceholder {

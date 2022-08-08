@@ -3,12 +3,8 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  OnInit,
   ViewChild,
   DoCheck,
-  OnChanges,
-  SimpleChanges,
-  OnDestroy,
 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';

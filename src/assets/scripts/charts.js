@@ -97,7 +97,7 @@ const EMOTIONS = [
       this._lastUpdateTime = null;
     }
     set visible(visible) {
-      this._element.style.display = visible ? 'block' : 'none';
+      //  this._element.style.display = visible ? 'block' : 'none';
     }
     reset() {
       this._datasets.forEach((dataset) => {

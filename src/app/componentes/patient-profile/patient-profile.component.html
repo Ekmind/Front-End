@@ -5,19 +5,11 @@
         <div class="col-lg-5">
           <div class="mb-4">
             <div class="card-body text-center">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
-                alt="avatar"
-                class="rounded-circle img-fluid"
-                style="width: 150px"
-              />
+              <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px" />
               <h5 class="my-3 fs-2">{{ patient.name }}</h5>
               <p class="text-muted fs-3">Patient</p>
-              <button
-                routerLink="/camera"
-                class="btn btn-outline-danger"
-                type="button"
-              >
+              <button routerLink="/camera" class="btn btn-outline-danger" type="button">
                 New Session
               </button>
             </div>
@@ -65,6 +57,7 @@
           </div>
         </div>
         <hr />
+        <!-- Seccion de citas -->
         <div class="table-wrapper mt-2">
           <div class="table-title">
             <div class="row">
@@ -83,10 +76,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                data-status="active"
-                *ngFor="let session of sessions; index as i"
-              >
+              <tr data-status="active" *ngFor="let session of sessions; index as i">
                 <td>{{ i + 1 }}</td>
                 <td>{{ session.date }}</td>
                 <td>
@@ -94,6 +84,14 @@
                 </td>
                 <td class="">
                   {{ session.notes }}
+                </td>
+                <td class="buttons">
+                  <a type="button" class="edit" title="Edit">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                  <a type="button" class="delete" title="Delete">
+                    <i class="bi bi-trash3"></i>
+                  </a>
                 </td>
               </tr>
             </tbody>

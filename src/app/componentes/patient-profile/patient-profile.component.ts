@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { Sessions } from 'src/app/interfaces/sessions.interface';
 import { Subscription } from 'rxjs';
 import { ReloadService } from 'src/services/reload/reload.service';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-patient-profile',
@@ -22,8 +23,9 @@ export class PatientProfileComponent implements OnInit {
   constructor(
     private expedientData: ExpedientComponent,
     private patientManagement: ManagementService,
+    private reloadService: ReloadService,
     private http: HttpClient,
-    private reloadService: ReloadService
+    private app: AppComponent
   ) {
     this.subscriptionName = this.reloadService
       .reload()
@@ -83,5 +85,10 @@ export class PatientProfileComponent implements OnInit {
 
   bringPatient() {
     console.log(sessionStorage.getItem('patient'));
+  }
+
+  openGraphModal(session_id: any) {
+    this.app.openGraph();
+    sessionStorage.setItem('session_id', session_id);
   }
 }

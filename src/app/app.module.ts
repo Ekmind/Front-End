@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PopUpAlertComponent } from './componentes/pop-up-alert/pop-up-alert.component';
 import { PopUpUpdateComponent } from './componentes/pop-up-update/pop-up-update/pop-up-update.component';
 import { PopUpGraphComponent } from './componentes/pop-up-graph/pop-up-graph.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { PopUpGraphComponent } from './componentes/pop-up-graph/pop-up-graph.com
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatDialogModule,
+    NgChartsModule
   ],
   providers: [CookieService, ExpedientComponent],
   bootstrap: [AppComponent],

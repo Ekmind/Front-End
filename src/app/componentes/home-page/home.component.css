@@ -1,7 +1,7 @@
 header {
   width: 100%;
   height: 600px;
-  background: #76d9cc;
+  background: linear-gradient(to left, #9bc5c3, #DDEFBB);
   background-attachment: fixed;
   position: relative;
 }

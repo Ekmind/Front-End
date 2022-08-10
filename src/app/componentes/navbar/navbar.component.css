@@ -9,6 +9,7 @@ nav.navbar {
     position: fixed;
     width: 98.5%;
     height: 64px;
+    background: linear-gradient(to left, #0059a7c0, #fffde4);
     margin: 10px 10px 10px 10px;
     z-index: 9999;
 }

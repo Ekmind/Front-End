@@ -24,10 +24,10 @@
       </ul>
 
       <div class="d-grid gap-2 d-md-block" *ngIf="isLoggedIn() === false">
-        <button routerLink="sign-up" class="btn btn-outline-light btn-sm" type="button" style="margin-right: 25px">
+        <button routerLink="sign-up" class="btn btn-light btn-sm" type="button" style="margin-right: 25px">
           Sign Up <span class="bi bi-person-plus"></span>
         </button>
-        <button routerLink="log-in" class="btn btn-outline-light btn-sm" type="button">
+        <button routerLink="log-in" class="btn btn-light btn-sm" type="button">
           Log In <span class="bi bi-box-arrow-in-right"></span>
         </button>
       </div>
@@ -44,7 +44,7 @@
       </ul>
 
       <div class="d-grid gap-2 d-md-block" *ngIf="isLoggedIn() === true">
-        <button routerLink="" (click)="logOut()" class="btn btn-outline-light btn-sm" type="button"
+        <button routerLink="" (click)="logOut()" class="btn btn-light btn-sm" type="button"
           style="margin-right: 25px">
           Log Out <span class="bi bi-box-arrow-in-left"></span>
         </button>

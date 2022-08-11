@@ -32,11 +32,11 @@ canvas {
   width: 300px;
 }
 
-#chart.charts {
+#chart {
   width: 67%;
-  height: 240px;
-  max-height: 70%;
-  max-width: 70%;
+  height: 400px;
+  max-height: 150%;
+  max-width: 100%;
   border-radius: 10px;
   margin: 0px 0px 0px 0px;
 }
@@ -74,3 +74,7 @@ canvas {
   width: 50%;
   margin-top: 20px;
 }
+/* .video-container {
+width: 50px;
+height: 50px;
+} */

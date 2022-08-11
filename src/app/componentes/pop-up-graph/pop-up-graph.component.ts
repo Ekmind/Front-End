@@ -34,41 +34,41 @@ export class PopUpGraphComponent implements OnInit {
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
       {
-        data: [65, 59, 80, 81, 56, 55, 40],
-        label: 'Series A',
+        data: [16, 15, 20, 30],
+        label: 'Neutral',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-        fill: 'origin',
+        fill: false,
       },
       {
         data: [28, 48, 40, 19, 86, 27, 90],
-        label: 'Series B',
+        label: 'Happiness',
         backgroundColor: 'rgba(77,83,96,0.2)',
         borderColor: 'rgba(77,83,96,1)',
         pointBackgroundColor: 'rgba(77,83,96,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(77,83,96,1)',
-        fill: 'origin',
+        fill: false,
       },
       {
         data: [18, 48, 77, 90, 10, 27, 40],
-        label: 'Series C',
-        yAxisID: 'y-axis-1',
+        label: 'Sadness',
+
         backgroundColor: 'rgba(255,0,0,0.3)',
         borderColor: 'red',
         pointBackgroundColor: 'rgba(148,159,177,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-        fill: 'origin',
+        fill: false,
       },
     ],
-    labels: [1, 2, 3, 4, 5],
+    labels: ['2016', '2017', '2018', '2019', '2020'],
   };
 
   public lineChartOptions: ChartConfiguration['options'] = {
@@ -79,18 +79,12 @@ export class PopUpGraphComponent implements OnInit {
     },
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
-      x: {},
+      x: {
+        min: 0,
+        max: 108000,
+      },
       'y-axis-0': {
         position: 'left',
-      },
-      'y-axis-1': {
-        position: 'right',
-        grid: {
-          color: 'rgba(255,0,0,0.3)',
-        },
-        ticks: {
-          color: 'red',
-        },
       },
     },
   };

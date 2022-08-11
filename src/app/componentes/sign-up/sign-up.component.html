@@ -3,12 +3,12 @@
     <div class="container">
       <div class="row vh-100 align-items-center">
         <div class="col-md-8 col-lg-6 col-xl-5 offset-xl-1">
-          <p class="text-center h1 fw-bold mb-2 mx-1 mx-md-4">Sign up</p>
+          <p class="text-center h1 fw-bold mb-2 mx-1 mx-md-4">Registrarse</p>
           <form [formGroup]="form" (ngSubmit)="addUser()" class="mx-1 mx-md-4">
             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
             <div class="align-items-center mb-2">
               <div class="form-outline flex-fill mb-0">
-                <label class="form-label fs-5" for="form3Example1c">First Name</label>
+                <label class="form-label fs-5" for="form3Example1c">Nombre</label>
                 <input type="text" formControlName="name" class="form-control" placeholder="Enter your name" />
               </div>
             </div>
@@ -16,7 +16,7 @@
             <div class="align-items-center mb-2">
               
               <div class="form-outline flex-fill mb-0">
-                <label class="form-label fs-5" for="form3Example3c">Last Name</label>
+                <label class="form-label fs-5" for="form3Example3c">Apellidos</label>
                 <input type="text" formControlName="last_name" class="form-control" placeholder="Enter your last name" />
               </div>
             </div>
@@ -24,7 +24,7 @@
             <div class="align-items-center mb-2">
               
               <div class="form-outline flex-fill mb-0">
-                <label class="form-label fs-5" for="form3Example3c">Your email</label>
+                <label class="form-label fs-5" for="form3Example3c">Correo electrónico</label>
                 <input type="email" formControlName="email" class="form-control" placeholder="Enter a email address" />
               </div>
             </div>
@@ -32,14 +32,14 @@
             <div class="align-items-center mb-4">
               
               <div class="form-outline flex-fill mb-0">
-                <label class="form-label fs-5" for="form3Example4c">Password</label>
+                <label class="form-label fs-5" for="form3Example4c">Contraseña</label>
                 <input type="password" formControlName="password" class="form-control" placeholder="Enter password" />
               </div>
             </div>
 
             <div class="d-flex flex-row align-items-center">
               <button id="regisbutton" type="submit" class="btn btn-primary">
-                Register
+                Registro
               </button>
             </div>
           </form>

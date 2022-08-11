@@ -5,15 +5,15 @@
         <div class="input-group mt-3 justify-content-center">
           <div class="input-group-prepend mb-2">
             <button id="button" class="btn btn-outline-secondary" type="button">
-              Get Camera
+              Seleccione cámara
             </button>
             <button id="btnStart" class="btn btn-outline-secondary">
-              Start
+              Iniciar
             </button>
-            <button id="btnStop" class="btn btn-outline-secondary">Stop</button>
+            <button id="btnStop" class="btn btn-outline-secondary">Finalizar</button>
           </div>
           <select class="custom-select mb-2" id="select">
-            <option selected>Choose...</option>
+            <option selected>Seleccionar...</option>
           </select>
         </div>
         <div class="col camera-frame">
@@ -26,7 +26,7 @@
               *ngIf="!error"
             ></video>
             <div class="videoPlaceholder" *ngIf="error">
-              Pleace turn on your camera
+              Encienda su cámara
             </div>
           </div>
         </div>
@@ -35,9 +35,9 @@
         <div class="row py-5">
           <div class="col">
             <div class="col row results">
-              <div id="age" class="col my-1 fs-5">Age: -</div>
-              <div id="gender" class="col my-1 fs-5">Gender: -</div>
-              <div id="emotion" class="col-6 my-1 fs-5">Emotion: -</div>
+              <div id="age" class="col my-1 fs-5">Edad: -</div>
+              <div id="gender" class="col my-1 fs-5">Género: -</div>
+              <div id="emotion" class="col-6 my-1 fs-5">Emoción: -</div>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
             [formGroup]="notesData"
             (submit)="endSession(notesData.value)"
           >
-            <label for="notes" class="notes-title">Notes</label>
+            <label for="notes" class="notes-title">Notas</label>
             <textarea
               name="notes"
               id="notes"
@@ -62,7 +62,7 @@
               formControlName="notes"
             ></textarea>
             <button class="btn btn-outline-secondary end-session" type="submit">
-              Save Session
+              Guardar sesión
             </button>
           </form>
         </div>

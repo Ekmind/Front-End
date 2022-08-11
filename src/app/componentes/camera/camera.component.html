@@ -38,8 +38,8 @@
           <button id="btnStart" class="btn btn-outline-secondary">Start</button>
           <button id="btnStop" class="btn btn-outline-secondary">Stop</button>
           <div class="notes-container">
-            <form action="" class="notes-form" [formGroup]="notesData" (submit)="endSession(notesData.value)">
-              <label for="notes" class="notes-title">Notes</label>
+            <form action="" class="notes-form col" [formGroup]="notesData" (submit)="endSession(notesData.value)">
+              <div for="notes" class="notes-title col">Notes</div>
               <textarea name="notes" id="notes" cols="30" rows="10" class="notes" formControlName="notes"></textarea>
               <button class="btn btn-outline-secondary end-session" type="submit">
                 Save Session

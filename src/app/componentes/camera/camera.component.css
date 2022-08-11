@@ -2,8 +2,8 @@ body {
   background: linear-gradient(to left, #9bc5c3, #DDEFBB);
 }
 
-.container{
- padding: 0em;
+.container {
+  padding: 0em;
 }
 
 /* .video-container {
@@ -52,19 +52,17 @@ canvas {
   color: white;
 }
 
-.notes-form {
+/* .notes-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
-}
+} */
 
-.notes-title {
-  position: relative;
-  top: -40px;
-  left: 45px;
-}
+/* .notes-title {
+
+} */
 
 .notes {
   width: 80%;

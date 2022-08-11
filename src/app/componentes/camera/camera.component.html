@@ -7,12 +7,16 @@
             <button id="button" class="btn btn-outline-secondary" type="button">
               Get Camera
             </button>
+            <button id="btnStart" class="btn btn-outline-secondary">
+              Start
+            </button>
+            <button id="btnStop" class="btn btn-outline-secondary">Stop</button>
           </div>
           <select class="custom-select mb-2" id="select">
             <option selected>Choose...</option>
           </select>
         </div>
-        <div class="col">
+        <div class="col camera-frame">
           <div class="video-container rounded-circle">
             <video
               #video
@@ -40,8 +44,7 @@
         <div class="wrapper pt-3">
           <canvas class="charts" id="chart"></canvas>
         </div>
-        <button id="btnStart" class="btn btn-outline-secondary">Start</button>
-        <button id="btnStop" class="btn btn-outline-secondary">Stop</button>
+
         <div class="notes-container">
           <form
             action=""

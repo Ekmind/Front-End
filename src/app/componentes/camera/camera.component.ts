@@ -123,9 +123,9 @@ export class CameraComponent implements AfterViewInit, DoCheck {
       )
       .subscribe((res: any) => {
         console.log(res);
+        sessionStorage.removeItem('emotional data');
+        this.reload.askForReload(true);
+        this.router.navigate(['/patient-profile']);
       });
-    sessionStorage.removeItem('emotional data');
-    this.reload.askForReload(true);
-    this.router.navigate(['/patient-profile']);
   }
 }

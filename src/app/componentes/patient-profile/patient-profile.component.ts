@@ -31,9 +31,10 @@ export class PatientProfileComponent implements OnInit {
       .reload()
       .subscribe((res: any) => {
         if (res.reload === true) {
+          console.log('Component Reloaded');
           return this.getSessions(this.patient_id);
         }
-        return;
+        return console.log('Component was not Reloaded');
       });
   }
 
@@ -81,6 +82,11 @@ export class PatientProfileComponent implements OnInit {
         this.sessions = res.sessions;
         console.log(res);
       });
+  }
+
+  deleteSession(session_id: any) {
+    this.app.openDeleteSession();
+    sessionStorage.setItem('session_id', session_id);
   }
 
   bringPatient() {

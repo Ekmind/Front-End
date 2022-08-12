@@ -22,6 +22,7 @@ import { PopUpAlertComponent } from './componentes/pop-up-alert/pop-up-alert.com
 import { PopUpUpdateComponent } from './componentes/pop-up-update/pop-up-update/pop-up-update.component';
 import { PopUpGraphComponent } from './componentes/pop-up-graph/pop-up-graph.component';
 import { NgChartsModule } from 'ng2-charts';
+import { PopUpDeleteSessionComponent } from './componentes/pop-up-delete-session/pop-up-delete-session.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NgChartsModule } from 'ng2-charts';
     PopUpAlertComponent,
     PopUpUpdateComponent,
     PopUpGraphComponent,
+    PopUpDeleteSessionComponent,
   ],
   entryComponents: [PopUpAlertComponent],
   imports: [

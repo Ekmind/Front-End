@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PopUpAlertComponent } from './componentes/pop-up-alert/pop-up-alert.component';
 import { PopUpUpdateComponent } from './componentes/pop-up-update/pop-up-update/pop-up-update.component';
 import { PopUpGraphComponent } from './componentes/pop-up-graph/pop-up-graph.component';
+import { PopUpDeleteSessionComponent } from './componentes/pop-up-delete-session/pop-up-delete-session.component';
 
 @Component({
   selector: 'app-root',
@@ -25,5 +26,11 @@ export class AppComponent {
 
   openGraph() {
     this.modal.open(PopUpGraphComponent, { panelClass: 'graph_modal' });
+  }
+
+  openDeleteSession() {
+    this.modal.open(PopUpDeleteSessionComponent, {
+      panelClass: 'delete-session_modal',
+    });
   }
 }

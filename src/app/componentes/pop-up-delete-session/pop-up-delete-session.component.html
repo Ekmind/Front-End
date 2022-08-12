@@ -1,0 +1,19 @@
+<div class="modal-delete">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Delete Session</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      (click)="closeModal()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <h2 mat-dialog-title>¡Espera!</h2>
+    <strong>¿Estás seguro de querer eliminar la sesión?</strong>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+    <button class="btn btn-danger" (click)="deleteSession()">Eliminar</button>
+  </div>
+</div>

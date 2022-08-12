@@ -13,7 +13,7 @@ function emotionalData() {
   let saveEmotions = new Array();
 
   window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
-    const emotions = evt.detail.output;
+    const emotions = evt.detail.output.emotion;
 
     if (emotions) {
       emotionalArray.push(emotions);

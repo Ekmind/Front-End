@@ -14,20 +14,17 @@ EMOTIONS.HAPPINESS = EMOTIONS[3];
 EMOTIONS.SADNESS = EMOTIONS[4];
 EMOTIONS.SURPRISE = EMOTIONS[5];
 EMOTIONS.NEUTRAL = EMOTIONS[6];
-
 const colorMap = {
-  [EMOTIONS.ANGER]: '#cc002e',
-  [EMOTIONS.DISGUST]: '#36c341',
-  [EMOTIONS.FEAR]: '#9a59a0',
-  [EMOTIONS.HAPPINESS]: '#e1ef00',
-  [EMOTIONS.SADNESS]: '#83c0e4',
+  [EMOTIONS.ANGER]: '#CC002E',
+  [EMOTIONS.DISGUST]: '#36C341',
+  [EMOTIONS.FEAR]: '#9A59A0',
+  [EMOTIONS.HAPPINESS]: '#E1EF00',
+  [EMOTIONS.SADNESS]: '#83C0E4',
   [EMOTIONS.SURPRISE]: '#FFC0CB',
   [EMOTIONS.NEUTRAL]: '#FFFFFF',
 };
-
 const MAX = 30;
 const STEP = 2;
-
 class EmoChart {
   constructor(el) {
     this._element = el;
@@ -38,7 +35,6 @@ class EmoChart {
         borderColor: colorMap[emotion],
         borderWidth: 2,
         data: [],
-        // lineTension: 0,
         pointRadius: 0
       };
     }).concat([{
@@ -50,7 +46,6 @@ class EmoChart {
       lineTension: 0,
       pointRadius: 0
     }]);
-
     const ctx = el.getContext('2d');
     const config = {
       type: 'line',
@@ -58,12 +53,12 @@ class EmoChart {
         datasets
       },
       options: {
-        responsive: true,
+        responsive: false,
         animation: {
           duration: 0,
         },
         scales: {
-          xAxes: {
+          xAxes: [{
             type: 'linear',
             display: true,
             scaleLabel: {
@@ -75,8 +70,8 @@ class EmoChart {
               suggestedMax: MAX + STEP,
               stepSize: STEP
             }
-          },
-          yAxes: {
+          }],
+          yAxes: [{
             display: true,
             scaleLabel: {
               display: true,
@@ -87,108 +82,88 @@ class EmoChart {
               min: 0,
               max: 1
             }
-          }
+          }]
         },
         legend: {
           position: 'top'
         }
       }
     };
+    Chart.defaults.global.defaultFontColor = "#000000";
     this._chart = new Chart(ctx, config);
     this._datasets = datasets;
     this._config = config;
     this._noDataTime = null;
     this._lastUpdateTime = null;
   }
-
   set visible(visible) {
-    this._element.style.display = visible ? 'block' : 'none';
+    //  this._element.style.display = visible ? 'block' : 'none';
   }
-
   reset() {
     this._datasets.forEach((dataset) => {
       dataset.data = [];
     });
     this._chart.update();
   }
-
   update(time, _emotions) {
     const emotions = [_emotions.Angry, _emotions.Disgust, _emotions.Fear, _emotions.Happy, _emotions.Sad, _emotions.Surprise, _emotions.Neutral];
-
     emotions.forEach((value, index) => {
-      this._datasets[index].data.push({y: value, x: time});
+      this._datasets[index].data.push({ y: value, x: time });
     });
-
     if (this._noDataTime !== null) {
-      this._datasets[this._datasets.length - 1].data.push({x: time, y: 1});
-      this._datasets[this._datasets.length - 1].data.push({x: time, y: undefined});
+      this._datasets[this._datasets.length - 1].data.push({ x: time, y: 1 });
+      this._datasets[this._datasets.length - 1].data.push({ x: time, y: undefined });
       this._noDataTime = null;
     }
-
     this._updateMinMax(time);
     this._chart.update();
     this._lastUpdateTime = time;
   }
-
   updateNoData(time) {
     if (this._lastUpdateTime) {
-      this._datasets[this._datasets.length - 1].data.push({x: this._lastUpdateTime, y: 1});
+      this._datasets[this._datasets.length - 1].data.push({ x: this._lastUpdateTime, y: 1 });
       this._lastUpdateTime = null;
     }
-
     this._datasets.forEach((dataset, index) => {
       let y = undefined;
       if (index === this._datasets.length - 1) {
         y = 1;
       }
-      dataset.data.push({y, x: time});
-
+      dataset.data.push({ y, x: time });
     });
-
     this._updateMinMax(time);
     this._chart.update();
     this._noDataTime = time;
   }
-
   _updateMinMax(time) {
-    const max = this._config.options.scales.xAxes.ticks.max || MAX;
+    const max = this._config.options.scales.xAxes[0].ticks.max || MAX;
     if (time >= max) {
-      this._config.options.scales.xAxes.ticks.min = max;
-      this._config.options.scales.xAxes.ticks.max = max + MAX + STEP;
+      this._config.options.scales.xAxes[0].ticks.min = max;
+      this._config.options.scales.xAxes[0].ticks.max = max + MAX + STEP;
       this._datasets.forEach(d => d.data = []);
     }
   }
 }
+
 const el = document.getElementById('chart');
-
-  let startTime = Date.now();
-  let noDataTimeOut;
-
-  function updateNoData() {
-    chart.updateNoData(getCurrentTime());
-    noDataTimeOut = setTimeout(() => updateNoData(), 500);
-  }
-  function resetTimeout() {
-    clearTimeout(noDataTimeOut);
-    noDataTimeOut = setTimeout(() => updateNoData(), 500);
-  }
-  function getCurrentTime() {
-    return (Date.now() - startTime)/1000;
-  }
-
-  const chart = new EmoChart(el);
-  chart.visible = true;
-  chart.reset();
+let startTime = Date.now();
+let noDataTimeOut;
+function updateNoData() {
+  chart.updateNoData(getCurrentTime());
+  noDataTimeOut = setTimeout(() => updateNoData(), 500);
+}
+function resetTimeout() {
+  clearTimeout(noDataTimeOut);
+  noDataTimeOut = setTimeout(() => updateNoData(), 500);
+}
+function getCurrentTime() {
+  return (Date.now() - startTime) / 1000;
+}
+const chart = new EmoChart(el);
+chart.visible = true;
+chart.reset();
+resetTimeout();
+window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
   resetTimeout();
-  window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
-    resetTimeout();
-
-    // data for the histogram
-    chart.update(getCurrentTime(), evt.detail.output.emotion);
-  });
-  
-  
-  
-  
-  
-  
+  chart.update(getCurrentTime(), evt.detail.output.emotion);
+});

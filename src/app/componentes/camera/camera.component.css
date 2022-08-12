@@ -6,6 +6,7 @@ body {
   padding: 0em;
 }
 
+
 /* .video-container {
   border-radius: 20px;
   width: 300px;
@@ -13,7 +14,7 @@ body {
 } */
 
 .results {
-  padding: 0%;
+  width: 300px;
   border-radius: 10px;
   background-color: white;
 }

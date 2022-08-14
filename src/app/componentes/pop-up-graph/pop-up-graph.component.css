@@ -13,3 +13,12 @@
   width: 800px;
   overflow-x: auto;
 }
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+}
+
+mat-slider {
+  width: 300px;
+}

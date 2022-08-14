@@ -29,13 +29,20 @@ export class AuthService {
           withCredentials: true,
         }
       )
-      .subscribe((res: any) => {
-        console.log(res.message);
-        this.user = res.user;
-        this.toastr.success(res.message);
-        this.router.navigate(['expedient']);
-        this.cookie.set('login', res.user, { expires: 3 / 24 });
-      });
+      .subscribe(
+        (res: any) => {
+          console.log({ 'This is the response': res });
+
+          this.user = res.user;
+          this.toastr.success(res.message);
+          this.router.navigate(['expedient']);
+          this.cookie.set('login', res.user, { expires: 3 / 24 });
+        },
+        (err: Error) => {
+          if (err) return this.toastr.error('Wrong Email or Password');
+          return 0;
+        }
+      );
   }
 
   logOut() {

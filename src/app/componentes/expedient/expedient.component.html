@@ -82,6 +82,7 @@
                                 id="floatingInput"
                                 placeholder="Name"
                                 formControlName="name"
+                                autocomplete="given-name"
                               />
                               <label for="floatingInput">Name</label>
                             </div>
@@ -92,6 +93,7 @@
                                 id="floatingPassword"
                                 placeholder="Estrada"
                                 formControlName="last_name"
+                                autocomplete="family-name"
                               />
                               <label for="floatingInput">Last Name</label>
                             </div>
@@ -102,17 +104,23 @@
                                 id="floatingInput"
                                 placeholder="25"
                                 formControlName="age"
+                                autocomplete="off"
                               />
                               <label for="floatingInput">Age</label>
                             </div>
                             <div class="form-floating mb-2">
                               <input
-                                type="string"
+                                list="gender"
                                 class="form-control"
                                 id="floatingPassword"
                                 placeholder="Male"
                                 formControlName="gender"
+                                autocomplete="off"
                               />
+                              <datalist id="gender">
+                                <option value="Male"></option>
+                                <option value="Female"></option>
+                              </datalist>
                               <label for="floatingInput">Gender</label>
                             </div>
                             <div class="form-floating mb-2">
@@ -122,6 +130,7 @@
                                 id="floatingInput"
                                 placeholder="name@example.com"
                                 formControlName="email"
+                                autocomplete="email"
                               />
                               <label for="floatingInput">Email</label>
                             </div>
@@ -132,6 +141,7 @@
                                 id="floatingInput"
                                 placeholder="(614) 195 50 41"
                                 formControlName="phone"
+                                autocomplete="tel"
                               />
                               <label for="floatingInput">Phone Number</label>
                             </div>

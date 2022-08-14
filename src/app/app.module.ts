@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,8 @@ import { PopUpUpdateComponent } from './componentes/pop-up-update/pop-up-update/
 import { PopUpGraphComponent } from './componentes/pop-up-graph/pop-up-graph.component';
 import { NgChartsModule } from 'ng2-charts';
 import { PopUpDeleteSessionComponent } from './componentes/pop-up-delete-session/pop-up-delete-session.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { PopUpDeleteSessionComponent } from './componentes/pop-up-delete-session
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatDialogModule,
-    NgChartsModule
+    NgChartsModule,
+    MatSliderModule,
+    NgxChartsModule,
   ],
   providers: [CookieService, ExpedientComponent],
   bootstrap: [AppComponent],

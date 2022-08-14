@@ -53,12 +53,12 @@ class EmoChart {
         datasets
       },
       options: {
-        responsive: false,
+        responsive: true,
         animation: {
           duration: 0,
         },
         scales: {
-          xAxes: [{
+          xAxes: {
             type: 'linear',
             display: true,
             scaleLabel: {
@@ -70,8 +70,8 @@ class EmoChart {
               suggestedMax: MAX + STEP,
               stepSize: STEP
             }
-          }],
-          yAxes: [{
+          },
+          yAxes: {
             display: true,
             scaleLabel: {
               display: true,
@@ -82,14 +82,13 @@ class EmoChart {
               min: 0,
               max: 1
             }
-          }]
+          }
         },
         legend: {
           position: 'top'
         }
       }
     };
-    Chart.defaults.global.defaultFontColor = "#000000";
     this._chart = new Chart(ctx, config);
     this._datasets = datasets;
     this._config = config;
@@ -136,10 +135,10 @@ class EmoChart {
     this._noDataTime = time;
   }
   _updateMinMax(time) {
-    const max = this._config.options.scales.xAxes[0].ticks.max || MAX;
+    const max = this._config.options.scales.xAxes.ticks.max || MAX;
     if (time >= max) {
-      this._config.options.scales.xAxes[0].ticks.min = max;
-      this._config.options.scales.xAxes[0].ticks.max = max + MAX + STEP;
+      this._config.options.scales.xAxes.ticks.min = max;
+      this._config.options.scales.xAxes.ticks.max = max + MAX + STEP;
       this._datasets.forEach(d => d.data = []);
     }
   }

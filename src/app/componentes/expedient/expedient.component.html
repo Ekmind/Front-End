@@ -12,7 +12,7 @@
         <div class="col-lg-2 avatar">
           <div class="mb-2">
             <div class="card-body text-center">
-              <p class="text-muted fs-4">Psicólogo</p>
+              <p class="text-muted fs-4">Psychologist</p>
               <img
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                 alt="avatar"
@@ -32,7 +32,7 @@
               <div class="table-title">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2>Detalles del paciente</h2>
+                    <h2>Patient Details</h2>
                   </div>
                   <div class="col-sm-4">
                     <!-- Button trigger modal add new patient -->
@@ -42,7 +42,7 @@
                       data-bs-toggle="modal"
                       data-bs-target="#addNewPatient"
                     >
-                      <i class="fa fa-plus"></i> Agregar nuevo
+                      <i class="fa fa-plus"></i> Add New
                     </button>
                   </div>
                   <!-- Modal add new patient -->
@@ -64,7 +64,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="addNewPatient">
-                              Agregar nuevo paciente
+                              Add New Patient
                             </h5>
                             <button
                               type="button"
@@ -82,8 +82,9 @@
                                 id="floatingInput"
                                 placeholder="Name"
                                 formControlName="name"
+                                autocomplete="given-name"
                               />
-                              <label for="floatingInput">Nombre</label>
+                              <label for="floatingInput">Name</label>
                             </div>
                             <div class="form-floating mb-2">
                               <input
@@ -92,8 +93,9 @@
                                 id="floatingPassword"
                                 placeholder="Estrada"
                                 formControlName="last_name"
+                                autocomplete="family-name"
                               />
-                              <label for="floatingInput">Apellido</label>
+                              <label for="floatingInput">Last Name</label>
                             </div>
                             <div class="form-floating mb-2">
                               <input
@@ -102,18 +104,24 @@
                                 id="floatingInput"
                                 placeholder="25"
                                 formControlName="age"
+                                autocomplete="off"
                               />
-                              <label for="floatingInput">Edad</label>
+                              <label for="floatingInput">Age</label>
                             </div>
                             <div class="form-floating mb-2">
                               <input
-                                type="string"
+                                list="gender"
                                 class="form-control"
                                 id="floatingPassword"
                                 placeholder="Male"
                                 formControlName="gender"
+                                autocomplete="off"
                               />
-                              <label for="floatingInput">Género</label>
+                              <datalist id="gender">
+                                <option value="Male"></option>
+                                <option value="Female"></option>
+                              </datalist>
+                              <label for="floatingInput">Gender</label>
                             </div>
                             <div class="form-floating mb-2">
                               <input
@@ -122,8 +130,9 @@
                                 id="floatingInput"
                                 placeholder="name@example.com"
                                 formControlName="email"
+                                autocomplete="email"
                               />
-                              <label for="floatingInput">E-mail</label>
+                              <label for="floatingInput">Email</label>
                             </div>
                             <div class="form-floating mb-2">
                               <input
@@ -132,8 +141,9 @@
                                 id="floatingInput"
                                 placeholder="(614) 195 50 41"
                                 formControlName="phone"
+                                autocomplete="tel"
                               />
-                              <label for="floatingInput">Número telefónico</label>
+                              <label for="floatingInput">Phone Number</label>
                             </div>
                           </div>
                           <div class="modal-footer">
@@ -142,14 +152,14 @@
                               class="btn btn-secondary"
                               data-bs-dismiss="modal"
                             >
-                              Cerrar
+                              Close
                             </button>
                             <button
                               type="submit"
                               class="btn btn-primary"
                               data-bs-dismiss="modal"
                             >
-                              Guardar
+                              Save
                             </button>
                           </div>
                         </div>
@@ -164,12 +174,12 @@
                   <thead>
                     <tr>
                       <td>#</td>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
-                      <th>Edad</th>
-                      <th>Género</th>
-                      <th>E-mail</th>
-                      <th>Acciones</th>
+                      <th>Name</th>
+                      <th>Last Name</th>
+                      <th>Age</th>
+                      <th>Gender</th>
+                      <th>Email</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>

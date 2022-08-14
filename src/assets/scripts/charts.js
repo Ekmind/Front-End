@@ -1,10 +1,10 @@
 const EMOTIONS = [
-  'Anger',
-  'Disgust',
-  'Fear',
-  'Happiness',
-  'Sadness',
-  'Surprise',
+  'Ira',
+  'Disgusto',
+  'Miedo',
+  'Alegría',
+  'Tristeza',
+  'Sorpresa',
   'Neutral'
 ];
 EMOTIONS.ANGER = EMOTIONS[0];
@@ -38,7 +38,7 @@ class EmoChart {
         pointRadius: 0
       };
     }).concat([{
-      label: 'Face not detected',
+      label: 'No detectada',
       fill: true,
       backgroundColor: 'rgba(170,170,170,0.6)',
       borderColor: 'rgba(170,170,170,0.6)',

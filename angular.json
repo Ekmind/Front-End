@@ -37,17 +37,15 @@
               "src/assets/scripts/info.js",
               "node_modules/chart.js/dist/Chart.min.js"
             ],
-            "allowedCommonJsDependencies": [
-              "chart.js"
-            ]
+            "allowedCommonJsDependencies": ["chart.js"]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "800kb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",

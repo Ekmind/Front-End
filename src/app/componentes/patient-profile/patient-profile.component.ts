@@ -52,7 +52,7 @@ export class PatientProfileComponent implements OnInit {
       this.patient_id = this.patientManagement.patient._id;
       sessionStorage.setItem('patient_id', this.patient_id);
       this.http
-        .get(this.localURL + `api/get/patient/${this.patient_id}`, {
+        .get(this.mainURL + `api/get/patient/${this.patient_id}`, {
           withCredentials: true,
         })
         .subscribe((res: any) => {
@@ -63,7 +63,7 @@ export class PatientProfileComponent implements OnInit {
       this.patient_id = sessionStorage.getItem('patient_id');
       console.log({ patient_id: this.patient_id });
       this.http
-        .get(this.localURL + `api/get/patient/${this.patient_id}`, {
+        .get(this.mainURL + `api/get/patient/${this.patient_id}`, {
           withCredentials: true,
         })
         .subscribe((res: any) => {
@@ -75,7 +75,7 @@ export class PatientProfileComponent implements OnInit {
 
   getSessions(patient_id: any) {
     this.http
-      .get(this.localURL + `api/get/all/appointments/${patient_id}`, {
+      .get(this.mainURL + `api/get/all/appointments/${patient_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {

@@ -37,7 +37,7 @@ export class PopUpUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.patient_id = sessionStorage.getItem('patient_id');
     this.http
-      .get(this.localURL + `api/get/patient/${this.patient_id}`, {
+      .get(this.mainURL + `api/get/patient/${this.patient_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {
@@ -48,7 +48,7 @@ export class PopUpUpdateComponent implements OnInit {
   async updatePatient(update: any) {
     await this.http
       .patch(
-        this.localURL + `api/update/patient/${this.patient_id}`,
+        this.mainURL + `api/update/patient/${this.patient_id}`,
         {
           name: update.name || this.patient.name,
           last_name: update.last_name || this.patient.last_name,

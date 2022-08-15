@@ -54,7 +54,7 @@ export class PopUpGraphComponent implements OnInit {
   ngOnInit(): void {
     this.session_id = sessionStorage.getItem('session_id');
     this.http
-      .get(this.localURL + `api/get/session/${this.session_id}`, {
+      .get(this.mainURL + `api/get/session/${this.session_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {
@@ -79,18 +79,47 @@ export class PopUpGraphComponent implements OnInit {
     this.currentData = this.emotions[this.sliderValue];
     this.dominantEmotionShowCase = this.dominantEmotion[this.sliderValue];
 
-    this.lineChartData.datasets[0].data[0] = this.currentData.Happy * 100;
-    this.lineChartData.datasets[0].data[1] = this.currentData.Sad * 100;
-    this.lineChartData.datasets[0].data[2] = this.currentData.Disgust * 100;
-    this.lineChartData.datasets[0].data[3] = this.currentData.Angry * 100;
-    this.lineChartData.datasets[0].data[4] = this.currentData.Fear * 100;
-    this.lineChartData.datasets[0].data[5] = this.currentData.Surprise * 100;
-    this.lineChartData.datasets[0].data[6] = this.currentData.Neutral * 100;
+    this.barChartData.datasets[0].data[0] = this.currentData.Happy * 100;
+    this.barChartData.datasets[0].data[1] = this.currentData.Sad * 100;
+    this.barChartData.datasets[0].data[2] = this.currentData.Disgust * 100;
+    this.barChartData.datasets[0].data[3] = this.currentData.Angry * 100;
+    this.barChartData.datasets[0].data[4] = this.currentData.Fear * 100;
+    this.barChartData.datasets[0].data[5] = this.currentData.Surprise * 100;
+    this.barChartData.datasets[0].data[6] = this.currentData.Neutral * 100;
     this.chart?.update();
     // console.log(this.lineChartData.datasets[0].data);
   }
 
-  public lineChartData: ChartConfiguration['data'] = {
+  public pieChartData: ChartConfiguration['data'] = {
+    datasets: [
+      {
+        label: '',
+        data: [],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)',
+        ],
+      },
+    ],
+    labels: [
+      'Happiness',
+      'Sadness',
+      'Disgust',
+      'Anger',
+      'Fear',
+      'Surprise',
+      'Neutral',
+    ],
+  };
+
+  public pieChartType: ChartType = 'pie';
+
+  public barChartData: ChartConfiguration['data'] = {
     datasets: [
       {
         label: '',
@@ -145,7 +174,7 @@ export class PopUpGraphComponent implements OnInit {
     ],
   };
 
-  public lineChartOptions: ChartConfiguration['options'] = {
+  public barChartOptions: ChartConfiguration['options'] = {
     scales: {
       // We use this empty structure as a placeholder for dynamic theming.
       x: {
@@ -164,7 +193,7 @@ export class PopUpGraphComponent implements OnInit {
     },
   };
 
-  public lineChartType: ChartType = 'bar';
+  public barChartType: ChartType = 'bar';
 
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 }

@@ -26,7 +26,7 @@ export class PopUpDeleteSessionComponent implements OnInit {
   deleteSession() {
     this.session_id = sessionStorage.getItem('session_id');
     this.http
-      .delete(this.localURL + `api/delete/appointment/${this.session_id}`, {
+      .delete(this.mainURL + `api/delete/appointment/${this.session_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {

@@ -56,7 +56,7 @@ export class ExpedientComponent implements OnInit {
 
   async getUser() {
     await this.http
-      .get(this.localURL + 'api/login', { withCredentials: true })
+      .get(this.mainURL + 'api/login', { withCredentials: true })
       .subscribe((res: any) => {
         this.user = res.user;
         this.list(this.user._id);
@@ -66,7 +66,7 @@ export class ExpedientComponent implements OnInit {
   async list(user_id: any) {
     // await console.log({ user_id: user_id });
     await this.http
-      .get(this.localURL + `api/get/all/patients/${user_id}`, {
+      .get(this.mainURL + `api/get/all/patients/${user_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {
@@ -77,7 +77,7 @@ export class ExpedientComponent implements OnInit {
   getPatient(patient_id: any) {
     console.log({ patient_id: patient_id });
     this.http
-      .get(this.localURL + `api/get/patient/${patient_id}`, {
+      .get(this.mainURL + `api/get/patient/${patient_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {
@@ -89,7 +89,7 @@ export class ExpedientComponent implements OnInit {
   submitPatient(user_id: any, patient: any) {
     console.log({ user: user_id, patient: patient });
     this.http
-      .post(this.localURL + `api/insert/patient/${user_id}`, patient, {
+      .post(this.mainURL + `api/insert/patient/${user_id}`, patient, {
         withCredentials: true,
       })
       .subscribe((res: any) => {

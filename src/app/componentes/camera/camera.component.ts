@@ -113,7 +113,7 @@ export class CameraComponent implements AfterViewInit, DoCheck {
 
     this.http
       .post(
-        this.mainURL + `api/create/appointment/${this.patient_id}`,
+        this.localURL + `api/create/appointment/${this.patient_id}`,
         {
           date: date,
           notes: notes.notes,

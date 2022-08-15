@@ -23,7 +23,7 @@ export class AuthService {
   logUser(email: string, password: string) {
     this.http
       .post(
-        this.mainURL + 'api/login',
+        this.localURL + 'api/login',
         { email: email, password: password },
         {
           withCredentials: true,

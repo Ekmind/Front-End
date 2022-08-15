@@ -19,7 +19,7 @@ export class PsychologistProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.http
-      .get(this.mainURL + 'api/login', { withCredentials: true })
+      .get(this.localURL + 'api/login', { withCredentials: true })
       .subscribe((res: any) => {
         // console.log(res);
         this.user = res.user;

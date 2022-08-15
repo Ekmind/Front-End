@@ -30,7 +30,7 @@ export class PopUpAlertComponent implements OnInit {
 
   deletePatient() {
     this.http
-      .delete(this.mainURL + `api/delete/patient/${this.patient_id}`, {
+      .delete(this.localURL + `api/delete/patient/${this.patient_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {

@@ -54,7 +54,7 @@ export class PopUpGraphComponent implements OnInit {
   ngOnInit(): void {
     this.session_id = sessionStorage.getItem('session_id');
     this.http
-      .get(this.mainURL + `api/get/session/${this.session_id}`, {
+      .get(this.localURL + `api/get/session/${this.session_id}`, {
         withCredentials: true,
       })
       .subscribe((res: any) => {

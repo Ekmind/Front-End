@@ -67,8 +67,8 @@ export class PopUpGraphComponent implements OnInit {
         );
         this.currentData = this.emotions[0];
         this.max = this.session.emotional_data.length;
-        // console.log({ 'Map of dominant emotions': this.dominantEmotion });
-        // console.log({ 'Map of emotions': this.emotions });
+        console.log({ 'Map of dominant emotions': this.dominantEmotion });
+        console.log({ 'Map of emotions': this.emotions });
         // console.log(this.session.emotional_data);
       });
     // console.log(this.lineChartData.datasets[0].data);
@@ -79,8 +79,8 @@ export class PopUpGraphComponent implements OnInit {
     this.currentData = this.emotions[this.sliderValue];
     this.dominantEmotionShowCase = this.dominantEmotion[this.sliderValue];
 
-    this.lineChartData.datasets[0].data[0] = this.currentData.Happiness * 100;
-    this.lineChartData.datasets[0].data[1] = this.currentData.Sadness * 100;
+    this.lineChartData.datasets[0].data[0] = this.currentData.Happy * 100;
+    this.lineChartData.datasets[0].data[1] = this.currentData.Sad * 100;
     this.lineChartData.datasets[0].data[2] = this.currentData.Disgust * 100;
     this.lineChartData.datasets[0].data[3] = this.currentData.Angry * 100;
     this.lineChartData.datasets[0].data[4] = this.currentData.Fear * 100;

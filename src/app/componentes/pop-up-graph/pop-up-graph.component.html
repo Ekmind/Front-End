@@ -21,7 +21,7 @@
             id="emotion_bar_chart"
             baseChart
             width="1000"
-            height="800"
+            height="500"
             [data]="lineChartData"
             [options]="lineChartOptions"
             [type]="lineChartType"
@@ -37,6 +37,9 @@
             [max]="max"
             step="1"
           ></mat-slider>
+        </div>
+        <div>
+          <p>El la emocion es: {{ dominantEmotionShowCase }}</p>
         </div>
       </div>
     </div>
